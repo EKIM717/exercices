@@ -1,0 +1,1 @@
+netstat -ona|findstr :9080 > e:	arget.txt
