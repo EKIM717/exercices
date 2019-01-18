@@ -1,10 +1,13 @@
 package java8.temporal_accessor;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.MonthDay;
 import java.time.Year;
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAccessor;
 
 public class TemporalAaccessorTest {
@@ -27,11 +30,11 @@ public class TemporalAaccessorTest {
 		// Exception in thread "main" java.time.DateTimeException: Invalid date
 		// 'February 29' as '2011' is not a leap year
 		// Year year1 = Year.of(2011);
-		Year year1 = Year.of(2012);
-		System.out.println("year1 :" + year1);
+		Year year = Year.of(2012);
+		System.out.println("year :" + year);
 
 		// 从Year获取YearMonth
-		YearMonth yearMonth = year1.atMonth(2);
+		YearMonth yearMonth = year.atMonth(2);
 		System.out.println("yearMonth :" + yearMonth);
 
 		// YearMonth指定日得到 LocalDate
@@ -40,6 +43,20 @@ public class TemporalAaccessorTest {
 
 		// 判断是否是闰年
 		System.out.println("isLeapYear :" + localDate.isLeapYear());
+		
+		
+		DayOfWeek dayOfWeek = DayOfWeek.of(1);
+		System.out.println("dayOfWeek :" + dayOfWeek);
+
+		//自动处理闰年的2月日期
+		//创建一个 MonthDay
+		MonthDay monthDay = MonthDay.of(2, 29);
+		LocalDate leapYear = monthDay.atYear(2012);
+		System.out.println("leapYear :" + leapYear);
+		
+		//计算两个日期之间的天数，还可以按其他时间单位计算两个时间点之间的间隔。
+		long between = ChronoUnit.DAYS.between(localDate, leapYear);
+		System.out.println("between :" + between);
 	}
 
 }
