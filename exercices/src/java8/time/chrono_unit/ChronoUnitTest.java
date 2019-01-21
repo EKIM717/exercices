@@ -1,4 +1,4 @@
-package java8.chrono_unit;
+package java8.time.chrono_unit;
 
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;

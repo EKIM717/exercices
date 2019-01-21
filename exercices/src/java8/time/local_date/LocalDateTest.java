@@ -1,4 +1,4 @@
-package java8.localDate;
+package java8.time.local_date;
 
 import java.text.DateFormat;
 import java.text.ParseException;
