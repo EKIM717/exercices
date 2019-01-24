@@ -1,6 +1,6 @@
 package timeUnit;
 
-public class Test {
+public abstract class Test {
 
 	abstract int excessNano(long time);
 }
