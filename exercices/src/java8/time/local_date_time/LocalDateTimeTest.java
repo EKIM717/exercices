@@ -9,6 +9,8 @@ public class LocalDateTimeTest {
 		LocalDateTime ldt = LocalDateTime.now();
 		System.out.println(ldt);
 		System.out.println(ldt.plus(1, ChronoUnit.DAYS));
+		
+		System.out.println(ldt.getChronology());
 	}
 	
 }

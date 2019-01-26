@@ -11,9 +11,9 @@ public class LocalDateTest {
 
 	public static void main(String[] args) throws ParseException {
 		
-//		  String s="10 de enero de 2018";
-//		  java8(s);
-		  to_method();
+		  String s="10 de enero de 2018";
+		  java8(s);
+//		  to_method();
 	}
 	
 	public static void java8( String s) {
