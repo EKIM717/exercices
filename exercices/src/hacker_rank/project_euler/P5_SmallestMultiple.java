@@ -22,20 +22,22 @@ public class P5_SmallestMultiple {
 			int t = in.nextInt();
 			for (int a0 = 0; a0 < t; a0++) {
 				int n = in.nextInt();
-				//key - the prime factor, value - the pow of the prime 
+				//key - the prime factor, value - the max pow of the prime 
 				Map<Integer, Integer> map = new HashMap<>();
-				for (int index = 2; index <= n; index++) {
+				//every N
+				for (int N = 2; N <= n; N++) {
 					int j = 0;
 					for (; ; j++) {
-						int current = list.get(j);
-						if (current > index) {
+						int currentPrime = list.get(j);
+						if (currentPrime > N) {
 							break;
 						}
-						if (index % current == 0) {
+						if (N % currentPrime == 0) {
 							int pow = 1;
-							updateMap(map, current, pow);
-							for (pow = 2; Math.pow(current, pow) <= index; pow++) {
-								updateMap(map, current, pow);
+							updateMap(map, currentPrime, pow);
+							// currentPrime ^ pow <= N
+							for (pow = 2; Math.pow(currentPrime, pow) <= N; pow++) {
+								updateMap(map, currentPrime, pow);
 							}
 						}
 					}
@@ -49,6 +51,14 @@ public class P5_SmallestMultiple {
 		}
 	}
 	
+	/**
+	 * store the prime and the max pow of prime,
+	 * ensure the prime ^ pow <= N
+	 * 
+	 * @param map
+	 * @param j
+	 * @param pow
+	 */
 	private static void updateMap(Map<Integer, Integer> map, int j, int pow) {
 		if (map.containsKey(j)) {
 			int source = map.get(j);
