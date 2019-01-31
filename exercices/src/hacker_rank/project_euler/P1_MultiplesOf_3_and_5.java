@@ -1,7 +1,5 @@
 package hacker_rank.project_euler;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class P1_MultiplesOf_3_and_5 {
