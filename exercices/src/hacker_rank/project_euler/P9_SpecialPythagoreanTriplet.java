@@ -1,6 +1,5 @@
 package hacker_rank.project_euler;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class P9_SpecialPythagoreanTriplet {
