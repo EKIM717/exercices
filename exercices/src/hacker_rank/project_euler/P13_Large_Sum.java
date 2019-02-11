@@ -39,10 +39,15 @@ public class P13_Large_Sum {
 		}
 //		System.out.println("sum is " + result + " carried is " + carried);
 		result += carried;
-		System.out.println(result / 10);
+		long digitExceed = (result / 100000_00000L);
+		int[] last = new int 
+		while (true) {
+			int i = (int) (result % 10);
+		}
+		System.out.println(result / digitExceed);
 	}
 
-	private static void foo(int[][] a) {
+	private static void foo(long digitExceed) {
 
 	}
 
