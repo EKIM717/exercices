@@ -2,6 +2,8 @@ package hacker_rank.project_euler;
 
 import java.util.Scanner;
 
+import javax.tools.Diagnostic;
+
 public class P13_Large_Sum {
 
 	public static void main(String[] args) {
@@ -26,10 +28,10 @@ public class P13_Large_Sum {
 		for (int j = 0; j < a[0].length - 1; j++) {
 			long tmp = 0;
 			for (int i = 0; i < a.length; i++) {
-//				System.out.print(a[i][j] + " ");
+				// System.out.print(a[i][j] + " ");
 				tmp += a[i][j];
 			}
-//			System.out.println("sum is " + tmp + " carried is " + carried);
+			// System.out.println("sum is " + tmp + " carried is " + carried);
 			tmp += carried;
 			carried = (int) (tmp / digits);
 		}
@@ -37,19 +39,17 @@ public class P13_Large_Sum {
 		for (int i = 0; i < a.length; i++) {
 			result += a[i][a.length - 1];
 		}
-//		System.out.println("sum is " + result + " carried is " + carried);
+		// System.out.println("sum is " + result + " carried is " + carried);
 		result += carried;
-		long digitExceed = (result / 100000_00000L);
-		int[] last = new int 
-		while (true) {
-			int i = (int) (result % 10);
+		long digitExceed = (result / digits);
+		int tenPow = 1;
+		if (digitExceed > 0) {
+			do {
+				tenPow *= 10;
+				digitExceed /= 10L;
+			} while (digitExceed > 0L);
 		}
-		System.out.println(result / digitExceed);
+		System.out.println(result / tenPow);
 	}
 
-	private static void foo(long digitExceed) {
-
-	}
-
-	// private static int
 }
