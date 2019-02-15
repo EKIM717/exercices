@@ -24,7 +24,7 @@ public class P14_Longest_Collatz_Sequence {
 
 	/**
 	 * 
-	 * @param a
+	 * @param sumArray
 	 * @param b
 	 */
 	private static void findMaxIndex() {
@@ -41,7 +41,7 @@ public class P14_Longest_Collatz_Sequence {
 	/**
 	 * set the step of every number that is below 5 * 10^6 ,
 	 * 
-	 * @param a
+	 * @param sumArray
 	 */
 	private static void setArray() {
 		int count = 0;
@@ -59,7 +59,7 @@ public class P14_Longest_Collatz_Sequence {
 	 * calculate the steps that it takes to reduce to 1
 	 * 
 	 * @param n
-	 * @param a
+	 * @param sumArray
 	 * @return
 	 */
 	private static int countchain(int n) {
