@@ -3,7 +3,7 @@ package hacker_rank.project_euler;
 import java.math.BigInteger;
 import java.util.Scanner;
 
-public class P16_Power_Ddigit_Sum {
+public class P16_Power_Digit_Sum {
 
 	static long[] sumArray = new long[10001];
 	
