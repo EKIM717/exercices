@@ -86,7 +86,6 @@ public class P28_Number_spiral_diagonals {
 		4 * summation of n = 2 * (n) * (n+1)
 		summation of 4 = 4 * n
 		*/
-		long a = (long) (8 * Math.pow(n, 3) + 30 * Math.pow(n, 2) + 34 * n + 3);
-		a /= 3;
+		long a = (long) (8 * Math.pow(n, 3) / 3+ 30 * Math.pow(n, 2) + 34 * n + 3);
 	}
 }
