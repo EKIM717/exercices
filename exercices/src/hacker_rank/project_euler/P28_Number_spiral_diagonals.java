@@ -68,6 +68,7 @@ public class P28_Number_spiral_diagonals {
 		BigInteger result = source.multiply(source).multiply(four);
 		minus = minus.multiply(six).negate();
 		result = result.add(minus).mod(mod_num);
+		n = n*(n+1)*(2*n+1)/6;
 		return result.intValue();
 	}
 }
