@@ -71,4 +71,22 @@ public class P28_Number_spiral_diagonals {
 		n = n*(n+1)*(2*n+1)/6;
 		return result.intValue();
 	}
+	
+	private static void bar(long n) {
+		/*
+		d1 = (2n + 1) ^2 Hence d1 = 4n^2 + 4n + 1
+		The numbers along the other diagonals are simply derived from d1 by subtracting certain values.
+		d2 = d1 - 2n Hence d2 = 4n^2 + 2n + 1
+		d3 = d2 - 2n Hence d3 = 4n^2 + 1
+		d4 = d3 - 2n Hence d4 = 4n^2 - 2n + 1
+		Now, all that the problem asks us to do is to sum up the numbers d1, d2, d3, d4 for n = 1, 2, 3, . . . . .. . ..
+		sum = summation of (16n^2 + 4n + 4) for n = 1, 2, 3, . . . . .
+		Now sum up remaining things like
+		16 * summation of n^2 = 8 * n * (n+1) * (2 * n + 1) / 3
+		4 * summation of n = 2 * (n) * (n+1)
+		summation of 4 = 4 * n
+		*/
+		long a = (long) (8 * Math.pow(n, 3) + 30 * Math.pow(n, 2) + 34 * n + 3);
+		a /= 3;
+	}
 }
