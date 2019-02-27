@@ -93,16 +93,26 @@ public class P28_Number_spiral_diagonals {
 		for (int i = 0; i < a.length; i++) {
 			if (a[i] % 3 == 0L) {
 				a[i] /= 3;
+				break;
 			}
 		}
 	}
 
+	/**
+	 * 
+	 * @param modulo
+	 * @param base
+	 * @param numbers
+	 * @return
+	 */
 	private static int inverseModulo(long modulo, long base, long[] numbers) {
 		base = base % modulo;
-		//reduce to be below integer type
+		//since (a*b)%c is equivalent to ((a%c)(b%c))%c
+		//reduce numbers[i] to be below integer type
 		for (int i = 0; i < numbers.length; i++) {
 			numbers[i] %= modulo;
 		}
+		//(a*b*c)%d is equivalent to (((a*b)%d)*c)%d
 		for (long i : numbers) {
 			base = (base * i) % modulo;
 		}
