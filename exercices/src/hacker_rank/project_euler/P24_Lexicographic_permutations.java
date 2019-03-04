@@ -22,7 +22,7 @@ public class P24_Lexicographic_permutations {
 		int t = in.nextInt();
 		while (t-- > 0) {
 			long l = in.nextLong();
-			System.out.println(foo(l));
+			System.out.println(foo(l - 1));
 		}
 		in.close();
 	}
@@ -69,36 +69,11 @@ public class P24_Lexicographic_permutations {
 		for (int ii = length - 1; ii >= count; ii--) {
 			result[k++] = listToRemove.remove(0);
 		}
-		int index = 0;
 		//affected,reverse
-		List<Character> listReverse = new ArrayList<>();
-		for (int aa = count - 1; aa >= 0; aa--) {
-			listReverse.add(listToRemove.get(aa));
-		}
-		for (int mm = 0; mm < count; mm++) {
+		for (int mm = count - 1; mm >= 0; mm--) {
 			int nn = (int) a[mm];
-			if (nn == 0) {
-				
-			} else {
-				nn++;
-			}
-			Character cc = listReverse.remove(nn);
-			result[k++] = cc;
+			result[k++] = listToRemove.remove(nn);
 		}
-//		for (int kk = 0; kk < length - count + 1; kk++) {
-//			Character cc = listToRemove.remove(0);
-//			result[k++] = cc; 
-//		}
-//		//affected
-//		for (int j = count; j > 0; j--) {
-//			index = (int) (a[j]);
-//			Character cc = listToRemove.remove(index);
-//			result[k++] = cc;
-//		}
-//		for (;j >=0; j--) {
-//			int index = (int) (j - a[j]+1);
-//			result[k++] = cArray[index];
-//		}
 		return new String(result);
 	}
 }
