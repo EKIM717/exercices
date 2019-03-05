@@ -11,9 +11,10 @@ public class P24_Lexicographic_permutations {
 	private static char[] cArray = new char[array_length];
 
 	static {
+		char ch = 'a';
 		int i = 0;
-		while (i < array_length) {
-			cArray[i++] = c--;
+		while (ch <= c) {
+			cArray[i++] = ch++;
 		}
 	}
 
@@ -22,11 +23,37 @@ public class P24_Lexicographic_permutations {
 		int t = in.nextInt();
 		while (t-- > 0) {
 			long l = in.nextLong();
-			System.out.println(foo(l - 1));
+			System.out.println(getResult(l - 1));
 		}
 		in.close();
 	}
 
+	/**
+	 * 
+	 * @param n
+	 * @return
+	 */
+	private static String getResult(long n) {
+		List<Integer> permutations = getPermutations(n);
+		int size = permutations.size();
+		char[] result = new char[array_length];
+		int k = 0;
+		//not affected
+		for (int i = 0; i < array_length - size; i++) {
+			result[k++] = cArray[i];
+		}
+		//permutation
+		List<Character> listAffected = new ArrayList<>();
+		for (int j = array_length - size; j < array_length; j++) {
+			listAffected.add(cArray[j]);
+		}
+		for (int m = size - 1; m >= 0; m--) {
+			int index = permutations.get(m);
+			result[k++] = listAffected.remove(index);
+		}
+		return new String(result);
+	}
+	
 	/**
 	 * In this article, a factorial number representation will be flagged by a
 	 * subscript "!", so for instance 341010! stands for 354413021100, whose value
@@ -41,39 +68,19 @@ public class P24_Lexicographic_permutations {
 	 * 19 ¡Â 5 = 3, remainder 4 
 	 * 3 ¡Â 6 = 0, remainder 3
 	 */
-
-	private static String foo(long n) {
-		int length = cArray.length;
-		long[] a = new long[length];
-		List<Character> listToRemove = new ArrayList<>();
-		for (int q = length - 1; q >= 0; q--) {
-			listToRemove.add(cArray[q]);
-		}
-		long quotient = 0;
+	private static List<Integer> getPermutations(long n) {
+		List<Integer> list = new ArrayList<>();
 		int i = 1;
-		int count = 0;
 		while (true) {
-			quotient = n / i;
+			long quotient = n / i;
 			long remainder = n % i;
-			a[i - 1] = remainder;
-			count++;
+			list.add((int)remainder);
 			if (quotient == 0) {
 				break;
 			}
 			n = quotient;
 			i++;
 		}
-		char[] result = new char[length];
-		int k = 0;
-		//not affected
-		for (int ii = length - 1; ii >= count; ii--) {
-			result[k++] = listToRemove.remove(0);
-		}
-		//affected,reverse
-		for (int mm = count - 1; mm >= 0; mm--) {
-			int nn = (int) a[mm];
-			result[k++] = listToRemove.remove(nn);
-		}
-		return new String(result);
+		return list;
 	}
 }
