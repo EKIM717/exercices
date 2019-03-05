@@ -8,25 +8,18 @@ public class P26_Reciprocal_cycles {
 	
 	private static long[] result = new long[10000];
 	private static int[] number = new int[10000];
+	static int record = 4;
 	
-	static {
-		result[0] = result[1] = 0;
-		number[1] = 1;
-		for (int i = 2; i < 10001; i++) {
-			int j = i - 1;
-			if (check(j)) {
-				result[i] = 0;
-				number[i] = number[i-1];
-//				System.out.println(result[i]);
+	static void bar (int n) {
+		number[3] = 3;
+		result[3] = 1;
+		for (int i = record; i <= n; i++) {
+			result[i] = foo(i);
+			if (result[i] <= result[i - 1]) {
+				number[i] = number[i - 1];
+				result[i] = result[i - 1];
 			} else {
-				long l =  foo(j);
-				result[i] = l;
-				if (result[i] > result[i-1]) {
-					number[i] = j;
-				} else {
-					number[i] = number[i-1];
-				}
-//				System.out.println(result[i]);
+				number[i] = i;
 			}
 		}
 	}
@@ -36,13 +29,11 @@ public class P26_Reciprocal_cycles {
 		int t = in.nextInt();
 		while (t-- > 0) {
 			int i = in.nextInt();
-			if (check(i)) {
-				result[i] = result[i - 1];
-				System.out.println(result[i]);
-			} else {
-				long l =  foo(i);
-				System.out.println(result[i-1]);
+			if (i >= record) {
+				bar(i);
+				record = i + 1;
 			}
+			System.out.println(number[i]);
 		}
 	}
 
@@ -50,9 +41,13 @@ public class P26_Reciprocal_cycles {
 		int bits = getDividerBit(n);
 		int dividend = (int) Math.pow(10, bits);
 		long index = 0;
+//		System.out.println(n);
 		List<Integer> list = new ArrayList<>();
 		do {
 			int remainder = dividend % n;
+			if (0 == remainder) {
+				return 0L;
+			}
 			if (list.contains(remainder)) {
 				break;
 			}

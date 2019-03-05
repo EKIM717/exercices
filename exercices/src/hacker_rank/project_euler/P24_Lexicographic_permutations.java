@@ -6,15 +6,15 @@ import java.util.Scanner;
 
 public class P24_Lexicographic_permutations {
 
-	private static char c = 'm';
-	private static int array_length = c - 'a' + 1;
+	private static char last_character = 'm';
+	private static char first_character = 'a';
+	private static int array_length = last_character - first_character + 1;
 	private static char[] cArray = new char[array_length];
 
 	static {
-		char ch = 'a';
 		int i = 0;
-		while (ch <= c) {
-			cArray[i++] = ch++;
+		while (first_character <= last_character) {
+			cArray[i++] = first_character++;
 		}
 	}
 
