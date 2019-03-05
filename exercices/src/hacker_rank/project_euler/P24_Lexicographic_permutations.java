@@ -34,22 +34,16 @@ public class P24_Lexicographic_permutations {
 	 * @return
 	 */
 	private static String getResult(long n) {
-		List<Integer> permutations = getPermutations(n);
-		int size = permutations.size();
-		char[] result = new char[array_length];
+		List<Character> l = new ArrayList<>();
+		for (Character c : cArray) {
+			l.add(c);
+		}
+		int[] permutations = getPermutations(n);
 		int k = 0;
-		//not affected
-		for (int i = 0; i < array_length - size; i++) {
-			result[k++] = cArray[i];
-		}
-		//permutation
-		List<Character> listAffected = new ArrayList<>();
-		for (int j = array_length - size; j < array_length; j++) {
-			listAffected.add(cArray[j]);
-		}
-		for (int m = size - 1; m >= 0; m--) {
-			int index = permutations.get(m);
-			result[k++] = listAffected.remove(index);
+		char[] result = new char[array_length];
+		for (int i = array_length - 1; i >= 0; i--) {
+			Character cc = l.remove(permutations[i]);
+			result[k++] = cc;
 		}
 		return new String(result);
 	}
@@ -68,19 +62,20 @@ public class P24_Lexicographic_permutations {
 	 * 19 ¡Â 5 = 3, remainder 4 
 	 * 3 ¡Â 6 = 0, remainder 3
 	 */
-	private static List<Integer> getPermutations(long n) {
-		List<Integer> list = new ArrayList<>();
+	private static int[] getPermutations(long n) {
+		int[] p = new int[array_length];
 		int i = 1;
+		int index = 0;
 		while (true) {
 			long quotient = n / i;
 			long remainder = n % i;
-			list.add((int)remainder);
+			p[index++] = (int) remainder;
 			if (quotient == 0) {
 				break;
 			}
 			n = quotient;
 			i++;
 		}
-		return list;
+		return p;
 	}
 }
