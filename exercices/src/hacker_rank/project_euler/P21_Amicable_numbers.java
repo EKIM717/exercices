@@ -62,8 +62,6 @@ public class P21_Amicable_numbers {
 			return sum;
 		// add 1
 		sum++;
-		if (sum == N)
-			return 0;
 		return sum;
 	}
 
@@ -76,6 +74,9 @@ public class P21_Amicable_numbers {
 //				System.out.println();
 //			}
 			int k = foo(i);// converted
+			if (k == i) {//like 1, 6, 28 
+				continue;
+			}
 			int M = foo(k);
 			if (M == i) {
 				set.add(i);
