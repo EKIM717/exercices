@@ -1,20 +1,32 @@
 package hacker_rank.project_euler;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class P26_Reciprocal_cycles {
-	
-	private static long[] result = new long[10000];
-	private static int[] number = new int[10000];
+	static int limit = 10001;
+	private static long[] result = new long[limit];
+	private static int[] number = new int[limit];
 	static int record = 4;
 	
-	static void bar (int n) {
+	static {
+		bar(limit);
+	}
+	
+	/**
+	 * initialization of all the number takes 7 seconds or more
+	 * @param n
+	 */
+	private static void bar(int n) {
 		number[3] = 3;
 		result[3] = 1;
-		for (int i = record; i <= n; i++) {
+		for (int i = record; i < n; i++) {
+			System.out.println("-----------" + i + "----------");
+			System.out.println(LocalDateTime.now());
 			result[i] = foo(i);
+			System.out.println(LocalDateTime.now());
 			if (result[i] <= result[i - 1]) {
 				number[i] = number[i - 1];
 				result[i] = result[i - 1];
@@ -29,15 +41,23 @@ public class P26_Reciprocal_cycles {
 		int t = in.nextInt();
 		while (t-- > 0) {
 			int i = in.nextInt();
-			if (i >= record) {
-				bar(i);
-				record = i + 1;
+//			if (i >= record) {
+//				bar(i);
+//				record = i + 1;
+//			}
+			if (number[i] == i) {//d < N
+				System.out.println(number[i - 1]);
+			} else {
+				System.out.println(number[i]);
 			}
-			System.out.println(number[i]);
 		}
+		in.close();
 	}
 
 	private static long foo(int n) {
+		if (check(n)) {
+			return 0L;
+		}
 		int bits = getDividerBit(n);
 		int dividend = (int) Math.pow(10, bits);
 		long index = 0;
