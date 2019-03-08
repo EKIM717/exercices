@@ -16,7 +16,7 @@ public class P26_Reciprocal_cycles {
 	}
 	
 	/**
-	 * initialization of all the number takes 7 seconds or more
+	 * memorization of all the number takes 7 seconds or more
 	 * @param n
 	 */
 	private static void bar(int n) {
