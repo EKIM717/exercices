@@ -36,7 +36,8 @@ public class P29_Distinct_powers {
 			}
 		}
 //		System.out.println(LocalDateTime.now());
-		
+		//repeat
+		Set<Integer> repeatSet = new HashSet<>();
 		int sum = 0;
 		Map<String, Set<String>> powMap = new HashMap<>();
 		loopMain: for (int i = 2; i <= n; i++) {
@@ -59,6 +60,7 @@ public class P29_Distinct_powers {
 			// if i = m^p * n^q (p>=1, q>=1), the map is {{m: p}, {n, q}}
 			for (int j = 2; j <= n; j++) {
 				if (i == j) {
+					repeatSet.add(i);
 					continue;
 				}
 				StringBuilder valueStr = new StringBuilder();
@@ -87,7 +89,7 @@ public class P29_Distinct_powers {
 //					System.out.println(k + "^" + j);
 //			}
 //		}
-		return sum;
+		return sum + repeatSet.size();
 	}
 
 	static String[] divid(int n, boolean[] prime_array) {
