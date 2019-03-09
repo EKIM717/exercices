@@ -32,6 +32,7 @@ public class P26_Reciprocal_cycles {
 				result[i] = result[i - 1];
 			} else {
 				number[i] = i;
+				System.out.println("number    " + i);
 			}
 		}
 	}
@@ -55,16 +56,21 @@ public class P26_Reciprocal_cycles {
 	}
 
 	private static long foo(int n) {
+		int bits = getDividerBit(n);
+		int dividend = (int) Math.pow(10, bits);
+		//
+		if ((dividend - 1) % n == 0) {
+			return bits;
+		}
 		if (check(n)) {
 			return 0L;
 		}
-		int bits = getDividerBit(n);
-		int dividend = (int) Math.pow(10, bits);
 		long index = 0;
 //		System.out.println(n);
 		List<Integer> list = new ArrayList<>();
 		do {
 			int remainder = dividend % n;
+			System.out.print(dividend);
 			if (0 == remainder) {
 				return 0L;
 			}
@@ -79,6 +85,9 @@ public class P26_Reciprocal_cycles {
 			index += digit;
 			dividend = remainder;
 		} while (true);
+		System.out.println();
+		System.out.println("    " + index + "    ");
+		System.out.println();
 		return index;
 	}
 

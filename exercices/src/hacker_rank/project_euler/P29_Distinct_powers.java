@@ -29,25 +29,41 @@ public class P29_Distinct_powers {
 		//store the prime
 		boolean[] prime_array = new boolean[100001];
 		//findPrime
-//		System.out.println(LocalDateTime.now());
+		System.out.println("findPrime------------");
+		System.out.println(LocalDateTime.now());
+		int primeCount = 1;
 		for (int i = 2; i <= n; i++) {
 			if (isPrime(i)) {
 				prime_array[i] = true;
+				primeCount++;
 			}
 		}
-//		System.out.println(LocalDateTime.now());
+		int[][] primePow = new int[primeCount][1];
+		System.out.println(LocalDateTime.now());
 		//repeat
 		Set<Integer> repeatSet = new HashSet<>();
 		int sum = 0;
 		Map<String, Set<String>> powMap = new HashMap<>();
+		//reduce the count of calculating the pow
+		int sqrt = (int) Math.round(Math.sqrt(n));
+		System.out.println("calculate the pow------------");
+		System.out.println(LocalDateTime.now());
 		loopMain: for (int i = 2; i <= n; i++) {
 			//if i is a prime
 			if (prime_array[i]) {
 				int fac = i;
-				int count = 1;
-				while ((fac *= i) <= n) {
-					count++;
+				int count = 0;
+				if (i > sqrt) {
+					count = 1;
+				} else {
+					count = 1;
+					while ((fac *= i) <= sqrt) {
+						count++;
+					}
+					// because of using the sqrt to compare
+					count *= 2;
 				}
+				System.out.println(i + " ^ " + count);
 				sum += getCount(count, n);
 				continue loopMain;
 			}
@@ -58,30 +74,30 @@ public class P29_Distinct_powers {
 				continue loopMain;
 			}
 			// if i = m^p * n^q (p>=1, q>=1), the map is {{m: p}, {n, q}}
-			for (int j = 2; j <= n; j++) {
-				if (i == j) {
-					repeatSet.add(i);
-					continue;
-				}
-				StringBuilder valueStr = new StringBuilder();
-				for (String k : array[1].split("\\|")) {
-					int powNum = Integer.valueOf(k) * j;
-					valueStr.append(powNum + "|");
-				}
-				String key = array[0];
-				Set<String> set = powMap.get(key);
-				if (null == set) {
-					set = new HashSet<>();
-					set.add(valueStr.toString());
-					powMap.put(key, set);
-					sum++;
-				} else {
-					if (!set.contains(valueStr.toString())) {
-						sum++;
-						set.add(valueStr.toString());
-					}
-				}
-			}
+//			for (int j = 2; j <= n; j++) {
+//				if (i == j) {
+//					repeatSet.add(i);
+//					continue;
+//				}
+//				StringBuilder valueStr = new StringBuilder();
+//				for (String k : array[1].split("\\|")) {
+//					int powNum = Integer.valueOf(k) * j;
+//					valueStr.append(powNum + "|");
+//				}
+//				String key = array[0];
+//				Set<String> set = powMap.get(key);
+//				if (null == set) {
+//					set = new HashSet<>();
+//					set.add(valueStr.toString());
+//					powMap.put(key, set);
+//					sum++;
+//				} else {
+//					if (!set.contains(valueStr.toString())) {
+//						sum++;
+//						set.add(valueStr.toString());
+//					}
+//				}
+//			}
 		}
 //		for (String k : powMap.keySet()) {
 //			if (null != powMap.get(k)) {
