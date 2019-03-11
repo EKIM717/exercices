@@ -2,9 +2,11 @@ package hacker_rank.project_euler.unfinished;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
+import java.util.HashSet;
 //import java.util.HashSet;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
@@ -31,7 +33,7 @@ public class P29 {
 		int a = in.nextInt();
 		TreeMap<Integer, Map<Integer, Integer>> totalDivisor = new TreeMap<>();
 		for (int i = 2; i <= a; i++) {
-			totalDivisor.put(i, divid(i, prime_array));
+			totalDivisor.put(i, primeFactorization(i, prime_array));
 		}
 //		System.out.println("------------------------");
 		System.out.println(LocalDateTime.now());
@@ -40,7 +42,13 @@ public class P29 {
 		in.close();
 	}
 
-	static TreeMap<Integer, Integer> divid(int n, boolean[] prime_array) {
+	/**
+	 * 
+	 * @param n
+	 * @param prime_array
+	 * @return
+	 */
+	static TreeMap<Integer, Integer> primeFactorization(int n, boolean[] prime_array) {
 		TreeMap<Integer, Integer> map = new TreeMap<>();
 		if (prime_array[n]) {
 			map.put(n, 1);
@@ -100,7 +108,7 @@ public class P29 {
 //				kkk *= k;
 				keyStr.append(k + "*");
 //		            	int powNum = map.get(k) * j;
-				valueStr.append(map.get(k) + "|");
+				valueStr.append(map.get(k) + " ");
 			}
 			keyStr.deleteCharAt(keyStr.length() - 1);
 			if (null == powMap.get(keyStr.toString())) {
@@ -122,17 +130,23 @@ public class P29 {
 		}
 		//calc
 		int countOne = 0;
+		Set<String> uniqueMultiple = new HashSet<>();
 		for (String k : powMap.keySet()) {
 			if (powMap.get(k).size() == 1) {//only have one multiple below 100000,so add N - 1
+				uniqueMultiple.add(k);
 				countOne++;
-				System.out.println(k + "--- " +  powMap.get(k));
+				System.out.println(k + "  " +  powMap.get(k));
 				sum += n - 1;
-			} else {
-				
 			}
 		}
-		System.out.println("only have one multiple" + countOne);
+		System.out.println("only have one multiple   " + countOne);
 		System.out.println(powMap.keySet().size());
+		System.out.println("after remove");
+		powMap.keySet().removeAll(uniqueMultiple);
+		System.out.println(powMap.keySet().size());
+		for (String k : powMap.keySet()) {
+				System.out.println(k + "  " +  powMap.get(k));
+		}
 //			if (null != powMap.get(k)) {
 //				for (String j : powMap.get(k))
 //					System.out.println(k + "^" + j);
