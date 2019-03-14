@@ -7,10 +7,12 @@ public class P31_Coin_sums {
 	private static int[] cache = {1, 2, 5, 10, 20, 50, 100, 200};
 	
 	private static int[] result = new int[100001];
+
+	private  static int modulo = (int)Math.pow(10, 9) + 7;
 	
 	static {
+		result[0] = 1;
 		result[1] = 1;
-		result[2] = 2;
 	}
 	
 	public static void main(String[] args) {
@@ -23,19 +25,22 @@ public class P31_Coin_sums {
 	}
 
 	private static char[] foo(int a0) {
-		int count = 0;
-		//divided by i
-		int i = 0;
-		for (; i < cache.length; i++) {
-			if (cache[i] > a0)
-				break;
-			if (a0 % cache[i] == 0) {
-				count++;
+		if (cache[cache.length - 1] < a0) {
+			for (int i = 0; i < cache.length; i++) {
+				result[a0] += (result[a0 - cache[i]]);
+				result[a0] %= modulo;
+			}
+		} else {
+			for (int i = 0; i < cache.length; i++) {
+				if (cache[i] < a0) {
+					break;
+				} else {
+					result[a0] += (result[a0 - cache[i]]);
+					result[a0] %= modulo;
+				}
 			}
 		}
-		i--;
-		//
-		
+
 		return null;
 	}
 }

@@ -32,3 +32,11 @@ target/
 /src/.gitignore
 bin/
 gen/
+
+#idea project
+exercices/.idea/misc.xml
+exercices/.idea/modules.xml
+exercices/.idea/vcs.xml
+exercices/.idea/workspace.xml
+exercices/exercices.iml
+
