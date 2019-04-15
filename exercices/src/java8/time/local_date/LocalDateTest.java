@@ -10,10 +10,15 @@ import java.util.Locale;
 public class LocalDateTest {
 
 	public static void main(String[] args) throws ParseException {
-		
+		getLengthOfMonth();
 		  String s="10 de enero de 2018";
 		  java8(s);
 //		  to_method();
+	}
+	
+	public static void getLengthOfMonth() {
+		LocalDate ld = LocalDate.now();
+		System.out.println(ld.withYear(2019).withMonth(2).lengthOfMonth());
 	}
 	
 	public static void java8( String s) {
