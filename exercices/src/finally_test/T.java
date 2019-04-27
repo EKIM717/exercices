@@ -10,9 +10,7 @@ package finally_test;
 public class T {
 
 	public static void main(String[] args) {
-<<<<<<< HEAD
-		
-=======
+
 		System.out.println("finally block no Execution tryBlockNoConditionToExecute");
 		tryBlockNoConditionToExecute();
 		outputSplitStr();
