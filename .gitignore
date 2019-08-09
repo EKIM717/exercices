@@ -41,3 +41,5 @@ exercices/.idea/workspace.xml
 exercices/exercices.iml
 .idea
 
+#maven project
+out/

@@ -1,5 +1,11 @@
 package hacker_rank.project_euler;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+
 public class P29_backup {
 	 static long foo(int n) {
 	        int sum = 0;
