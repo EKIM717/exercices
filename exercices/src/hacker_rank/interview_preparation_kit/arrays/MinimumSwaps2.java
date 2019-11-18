@@ -9,6 +9,17 @@ public class MinimumSwaps2 {
 
 	 // Complete the minimumSwaps function below.
     static int minimumSwaps(int[] arr) {
+    	int startIndex = 0;
+    	int lastIndex = 0;
+    	for (int i = startIndex; i < arr.length - 1; i++) {
+    		if (arr[i] > arr[i + 1]) {
+    			while (i + 2 < arr.length && arr[i + 1] < arr[i + 2] && arr[i + 2] <= arr[i]) {
+    				i++;
+    			}
+    		} else {
+    			startIndex = i;
+    		}
+    	}
     	return bubbleByOneDirection(arr);
 
     }
