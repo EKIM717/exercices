@@ -6,13 +6,13 @@ public class DrawPicture {
 	
 	public static String[][] test = {
 			{" ------- ------- ------- -------"},
-			{"|*     *| ***** |       | *   *|"},
-			{"| *   * |   *   | *   * | *   *|"},
-			{"|  * *  |   *   |* * * *| *   *|"},
-			{"|   *   |   *   |*  *  *| *****|"},
-			{"|   *   |   *   | *   * | *   *|"},
-			{"|   *   |   *   |  * *  | *   *|"},
-			{"|   *   | ***** |       | *   *|"},
+			{"| ***** |       |*     *|*     *|"},
+			{"|   *   | *   * |*     *| *   * |"},
+			{"|   *   |* * * *|*     *|  * *  |"},
+			{"|   *   |*  *  *|** * **|   *   |"},
+			{"|   *   | *   * |*     *|   *   |"},
+			{"|   *   |  * *  |*     *|   *   |"},
+			{"| ***** |   *   |*     *|   *   |"},
 			{" ------- ------- ------- -------"},
 	};
 
@@ -62,7 +62,7 @@ public class DrawPicture {
     				outputArray(temp);
     			}
     			Thread.sleep(300L);
-    			reset();
+//    			reset();
     		}
     	} else {
     		for (int k = temp.length - 1; k >= 0; k--) {
@@ -72,7 +72,7 @@ public class DrawPicture {
     				System.out.print(" ");
     			}
     			Thread.sleep(300L);
-    			reset();
+//    			reset();
     		}
     	}
     	return temp;
@@ -90,18 +90,23 @@ public class DrawPicture {
 		Thread.sleep(2000L);
 		int count = 0;
 		for (String[] arr : test) {
-			char[] cArray = arr[0].toCharArray();
-			for (int i = 0; i < cArray.length; i++) {
-				if (cArray[i] == ('*')) {
-					++count;
+			System.out.println(arr[0].toCharArray());
+			for (char c : arr[0].toCharArray()) {
+				if (c == '*') {
+					count++;
 				}
-				for (int j = 0; j <= i; j++) {
-					Thread.sleep(1L);
-					System.out.print(cArray[j]);
-				}
-				System.out.print("\r");
 			}
-			System.out.println();
+//			char[] cArray = arr[0].toCharArray();
+//			for (int i = 0; i < cArray.length; i++) {
+//				if (cArray[i] == ('*')) {
+//					++count;
+//				}
+//				for (int j = 0; j <= i; j++) {
+//					Thread.sleep(1L);
+//					System.out.print(cArray[j]);
+//				}
+////				System.out.print("\r");
+//			}
 		}
 		System.out.println("total count: " + count);
 //		
