@@ -1,4 +1,4 @@
-package enumTest;
+package javaSE.enumTest;
 
 import java.util.HashMap;
 import java.util.Map;

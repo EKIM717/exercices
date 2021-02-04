@@ -1,4 +1,4 @@
-package enumTest;
+package javaSE.enumTest;
 
 import java.util.Collection;
 import java.util.Set;

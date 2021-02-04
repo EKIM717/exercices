@@ -1,4 +1,4 @@
-package string;
+package javaSE.string;
 
 public class RefTest {
 

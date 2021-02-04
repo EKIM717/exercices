@@ -3,7 +3,7 @@ package impl;
 import java.util.HashSet;
 import java.util.Set;
 
-import generics.MapTmp;
+import javaSE.generics.MapTmp;
 
 public class MapLikeImpl<K, V> implements MapTmp<K, V> {
 

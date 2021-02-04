@@ -1,4 +1,4 @@
-package exception;
+package javaSE.exception;
 
 public class ExceptionTest {
 

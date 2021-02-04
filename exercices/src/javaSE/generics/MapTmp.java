@@ -1,4 +1,4 @@
-package generics;
+package javaSE.generics;
 
 import java.util.Set;
 

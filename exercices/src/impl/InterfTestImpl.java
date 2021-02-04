@@ -1,8 +1,8 @@
 package impl;
 
-import generics.MapTmp;
+import javaSE.generics.MapTmp;
 
-public class InterfTestImpl<K, V> implements generics.MapTmp.Entry<K, V> {
+public class InterfTestImpl<K, V> implements javaSE.generics.MapTmp.Entry<K, V> {
 
 	private K key;
 	

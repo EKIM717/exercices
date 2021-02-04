@@ -1,4 +1,4 @@
-package generics;
+package javaSE.generics;
 
 public class GenericsMethod {
 	public static void main(String[] args) throws InstantiationException, IllegalAccessException {

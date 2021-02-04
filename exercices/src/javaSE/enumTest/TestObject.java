@@ -1,4 +1,4 @@
-package enumTest;
+package javaSE.enumTest;
 
 public class TestObject {
 

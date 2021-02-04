@@ -1,101 +1,154 @@
 package hacker_rank.project_euler;
 
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.TreeMap;
+import java.util.TreeSet;
 
 public class P29_backup {
-	 static long foo(int n) {
-	        int sum = 0;
-	        Map<String, Set<String>> powMap = new HashMap<>();
-	        for (int i = 2; i <= n; i++) {
-	            // if i = m^p * n^q, the map is {{m: p}, {n, q}}
-	            Map<Integer, Integer> map = divid(i);
-//	            if (null != map.get(i) && map.get(i) == 1) {// if i is a prime
-//	                sum += n - 1;
-//	                Set<Integer> set = new HashSet<>();
-//	                for (int j = 2; j <= n; j++) {
-//	                    set.add(j);
-//	                }
-////	                powMap.put(i, set);
-//	            } else {
-	                for (int j = 2; j <= n; j++) {
-	                    StringBuilder keyStr = new StringBuilder();
-	                    StringBuilder valueStr = new StringBuilder();
-	                    for (Integer k : map.keySet()) {
-	                        keyStr.append(k + "|");
-	                        int powNum = map.get(k) * j;
-	                        valueStr.append(powNum + "|");
-	                    }
-	                    String key = keyStr.toString();
-	                    Set<String> set = powMap.get(key);
-	                    if (null == set) {
-	                        set = new HashSet<>();
-	                    }
-	                    if (!set.contains(valueStr.toString())) {
-	                        sum++;
-	                        set.add(valueStr.toString());
-	                    }
-	                    powMap.put(key, set);
-	                }
-//	            }
-	        }
-//	        for (String k : powMap.keySet()) {
-//	            if (null != powMap.get(k)) {
-//	                for (String j : powMap.get(k))
-//	                    System.out.println(k + "^" + j);
-//	            }
-//	        }
-	        return sum;
-	    }
+	
+	public static void main(String[] args) {
+		int n = 6;
+		Set<Integer> set = new TreeSet<>();
+		for (int x = 2; x <= n; x++) {
+			for (int b = 2; b <= n; b++) {
+				set.add((int) Math.pow(x, b));
+			}
+		}
+		System.out.println(set);
+		System.out.println(set.size());
+		List<Integer> primeList = findPrimeList(n);
+		System.out.println(primeList);
+		LinkedHashMap<Integer, Integer> map = divid(n, primeList);
+		
+		int total = 0;
+		for (int index = 0; index < primeList.size(); index++) {
+			int tempIndex = index;
+			int i = primeList.get(index);
+			int powNum = map.get(i);
+			System.out.println(i + "-->" + map.get(i));
+			int count = 0;
+			for (int j = 2; j <= powNum + 1; j++) {
+				int q = (int) Math.pow(i, j);
+				if (n / q == 0) {
+					count++;
+				} else {
+					++tempIndex;
+				}
+			}
+			total += map.get(i);
+		}
+		System.out.println(total + "----------");
+//		foo(n, map);
+	}
+	
+	private static int calc(int index, int pow, List<Integer> primeList, Map<Integer, Integer> map, int n) {
+		int i = primeList.get(index);
+		int powNum = map.get(i);
+		System.out.println(i + "-->" + map.get(i));
+		int count = 0;
+		for (int j = 2; j <= powNum + 1; j++) {
+			int q = (int) Math.pow(i, j);
+			if (n / q == 0) {
+				return 1;
+			} else {
+				++index;
+				calc(index, primeList, map, n);
+			}
+		}
+		return count;
+	}
 
-	    static Map<Integer, Integer> divid(int n) {
-	        TreeMap<Integer, Integer> map = new TreeMap<>();
-	        // divided by 2
-	        int countOf2 = 0;
-	        while (n % 2 == 0) {
-	            n /= 2;
-	            countOf2++;
-	        }
-	        if (countOf2 > 0) {
-	            map.put(2, countOf2);
-	        }
-	        if (n == 1) {
-	            return map;
-	        }
-	        for (int i = 3; i <= n; i += 2) {
-	            if (isPrime(i)) {
-	                int count = 0;
-	                while (n % i == 0) {
-	                    n /= i;
-	                    count++;
-	                }
-	                if (count > 0) {
-	                    map.put(i, count);
-	                }
-	                if (n == 1) {
-	                    return map;
-	                }
-	            }
-	        }
-//	        if (map.containsValue(0)) {
-//	            System.out.println();
-//	        }
-	        return map;
-	    }
+	private static List<Integer> findPrimeList(int n) {
+		List<Integer> result = new ArrayList<>();
+		for (int i = 2; i <= n; i++) {
+			if (isPrime(i)) {
+				result.add(i);
+			}
+		}
+		return result;
+	}
 
-	    static boolean isPrime(int n) {
-	        if (n < 2) {
-	            return false;
-	        } else if (n == 2) {
-	            return true;
-	        }
-	        for (int i = 3; i * i <= n; i++) {
-	            if (n % i == 0)
-	                return false;
-	        }
-	        return true;
-	    }
+	static long foo(int n, Map<Integer, Integer> map) {
+		long result = 0L;
+		n *= n;
+		int [] a = new int[1];
+		
+		for (Integer x : map.keySet()) {
+			a[0] = 0;
+			Integer q = map.get(x);
+			for (int m = 1; m <= q; m++) {
+				n /= (int) Math.pow(x, m);
+				if (n == 0) {
+					result++;
+					continue;
+				}
+				
+				long tempResult = 1;
+				for (Integer i : map.keySet()) {
+					if (i > x) {
+						a[0] = 0;
+						n = divide(n, i, map, a);
+						int temp = a[0];
+						if (temp > 0) {
+							tempResult *= temp;
+						}
+						if (0 == n) {
+							break;
+						}
+					}
+				}
+				
+				result += tempResult;
+			
+			}
+			n = divide(n, x, map, a);
+			
+		}
+		return result;
+	}
+	
+	static int divide(int n, int i, Map<Integer, Integer> map, int[] a) {
+		Integer q = map.get(i);
+		for (int m = 1; m <= q; m++) {
+			n /= (int) Math.pow(i, m);
+			a[0]++;
+			if (n == 0) {
+				return n;
+			}
+		}
+		
+		return n;
+	}
+
+	static LinkedHashMap<Integer, Integer> divid(long n, List<Integer> primeList) {
+		LinkedHashMap<Integer, Integer> map = new LinkedHashMap<>();
+		for (int i : primeList) {
+			long temp = n;
+			int count = 0;
+			if (isPrime(i)) {
+				while ((temp /= i) > 0) {
+					count++;
+				}
+//				count *= n;
+				map.put(i, count);
+			}
+		}
+		return map;
+	}
+
+	static boolean isPrime(int n) {
+		if (n < 2) {
+			return false;
+		} else if (n == 2) {
+			return true;
+		}
+		for (int i = 2; i * i <= n; i++) {
+			if (n % i == 0)
+				return false;
+		}
+		return true;
+	}
 }

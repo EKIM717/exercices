@@ -1,4 +1,4 @@
-package generics;
+package javaSE.generics;
 
 public interface Entry {
 

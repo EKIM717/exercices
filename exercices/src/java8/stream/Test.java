@@ -3,7 +3,7 @@ package java8.stream;
 import java.util.Arrays;
 import java.util.Optional;
 
-import enumTest.StrManager;
+import javaSE.enumTest.StrManager;
 
 public class Test {
 

@@ -1,4 +1,4 @@
-package file;
+package javaSE.file;
 
 import java.io.IOException;
 import java.io.RandomAccessFile;

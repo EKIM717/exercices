@@ -1,4 +1,4 @@
-package enumTest;
+package javaSE.enumTest;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -9,8 +9,8 @@ import java.util.regex.Pattern;
 public final class StrManager {
 
 	/**
-	 * 鏄惁涓虹┖<br>
-	 * 鍖呮嫭Null鍜�""
+	 * 閺勵垰鎯佹稉铏光敄<br>
+	 * 閸栧懏瀚璑ull閸滐拷""
 	 * @param str
 	 * @return
 	 */
@@ -21,8 +21,8 @@ public final class StrManager {
 	}
 
 	/**
-	 * 鍘绘帀鍓嶅悗鏃犳剰涔夌殑瀛楃<br>
-	 * 绌烘牸绛�
+	 * 閸樼粯甯�閸撳秴鎮楅弮鐘冲壈娑斿娈戠�涙顑�<br>
+	 * 缁岀儤鐗哥粵锟�
 	 * @param str
 	 * @return
 	 */
@@ -39,9 +39,9 @@ public final class StrManager {
 	}
 	
 	/**
-	 * replaceAll("\\s*", "")鍙互鏇挎崲澶ч儴鍒嗙┖鐧藉瓧绗�<br>
-	 * 涓嶉檺浜庣┖鏍� \s 鍙互鍖归厤绌烘牸銆佸埗琛ㄧ銆佹崲椤电绛夌┖鐧藉瓧绗︾殑鍏朵腑浠绘剰涓�涓�
-	 * replaceAll("銆�", "")鐢ㄤ簬鏇挎崲鍏ㄨ鐨勭┖鏍煎瓧绗�
+	 * replaceAll("\\s*", "")閸欘垯浜掗弴鎸庡床婢堆囧劥閸掑棛鈹栭惂钘夌摟缁楋拷<br>
+	 * 娑撳秹妾烘禍搴ｂ敄閺嶏拷 \s 閸欘垯浜掗崠褰掑帳缁岀儤鐗搁妴浣稿煑鐞涖劎顑侀妴浣瑰床妞ょ數顑佺粵澶屸敄閻ц棄鐡х粭锔炬畱閸忔湹鑵戞禒缁樺壈娑擄拷娑擄拷
+	 * replaceAll("閵嗭拷", "")閻€劋绨弴鎸庡床閸忋劏顫楅惃鍕敄閺嶇厧鐡х粭锟�
 	 * @param str
 	 * @return
 	 */
@@ -49,11 +49,11 @@ public final class StrManager {
 		if (str == null) {
 			return null;
 		}
-		return str.replaceAll("\\s*", "").replaceAll("銆�", "");
+		return str.replaceAll("\\s*", "").replaceAll("閵嗭拷", "");
 	}
 	
 	/**
-	 * 鍒ゆ柇鏄惁鍚湁涓枃
+	 * 閸掋倖鏌囬弰顖氭儊閸氼偅婀佹稉顓熸瀮
 	 * @param str
 	 * @return
 	 */
@@ -68,7 +68,7 @@ public final class StrManager {
 	}
 
 	/**
-	 * 鍒ゆ柇鏄惁涓烘暟瀛楀瓧绗︼紝涓嶆槸鍒欒繑鍥瀟rue ,鏄垯杩斿洖false
+	 * 閸掋倖鏌囬弰顖氭儊娑撶儤鏆熺�涙鐡х粭锔肩礉娑撳秵妲搁崚娆掔箲閸ョ�焤ue ,閺勵垰鍨潻鏂挎礀false
 	 * 
 	 * @param str
 	 * @return
@@ -84,7 +84,7 @@ public final class StrManager {
 	}
 
 	/**
-	 * 鍒ゆ柇璇ュ瓧绗︽槸鍚︿负鏁板瀛楃锛堝惈灏忔暟鐐癸級锛屾槸鍒欒繑鍥瀟rue锛屼笉鏄垯杩斿洖false
+	 * 閸掋倖鏌囩拠銉ョ摟缁楋附妲搁崥锔胯礋閺佹澘顒熺�涙顑侀敍鍫濇儓鐏忓繑鏆熼悙鐧哥礆閿涘本妲搁崚娆掔箲閸ョ�焤ue閿涘奔绗夐弰顖氬灟鏉╂柨娲杅alse
 	 * 
 	 * @param c
 	 * @return
@@ -97,16 +97,16 @@ public final class StrManager {
 	}
 	
 	/**
-	 * 鐢ㄤ簬dao鐨刬n璇彞<br>
-	 * 杩斿洖涓�涓舰寮忓:'a','b','c'鐨勫瓧绗︿覆,<br>
-	 * 濡傛灉Collection涓虹┖,鍒欒繑鍥�  ''
+	 * 閻€劋绨琩ao閻ㄥ埇n鐠囶厼褰�<br>
+	 * 鏉╂柨娲栨稉锟芥稉顏勮埌瀵繐顩�:'a','b','c'閻ㄥ嫬鐡х粭锔胯,<br>
+	 * 婵″倹鐏塁ollection娑撹櫣鈹�,閸掓瑨绻戦崶锟�  ''
 	 * @param subStr
 	 * @return
 	 */
 	public static String constructInStatement(Collection<String> subStr) {
 		StringBuffer sb = new StringBuffer("'");
 		String[] array = new String[subStr.size()];
-		subStr.toArray(array);//灏哻ollection鐨勫唴瀹瑰瓨鍏rray鏁扮粍涓�
+		subStr.toArray(array);//鐏忓摶ollection閻ㄥ嫬鍞寸�圭懓鐡ㄩ崗顧ray閺佹壆绮嶆稉锟�
 		if(null != array && array.length > 0) {
 			for(int i = 0; i < array.length; i++) {
 				if(i == (array.length - 1)) {
@@ -122,17 +122,17 @@ public final class StrManager {
 
 	/**
 	 * 
-	 * @param subStr 杈撳叆鐨勫瓧绗︿覆array
-	 * @param limit 姣忔杈撳叆鐨勪釜鏁�
-	 * @param from 浠庣鍑犱釜寮�濮�
+	 * @param subStr 鏉堟挸鍙嗛惃鍕摟缁楋缚瑕哸rray
+	 * @param limit 濮ｅ繑顐兼潏鎾冲弳閻ㄥ嫪閲滈弫锟�
+	 * @param from 娴犲海顑囬崙鐘遍嚋瀵拷婵拷
 	 * @return
 	 */
 //	public static String constructInStatement(Collection<String> subStr, int limit, int from) {
 //		StringBuffer sb = new StringBuffer("'");
 //		String[] array = new String[subStr.size()];
-//		subStr.toArray(array);//灏哻ollection鐨勫唴瀹瑰瓨鍏rray鏁扮粍涓�
+//		subStr.toArray(array);//鐏忓摶ollection閻ㄥ嫬鍞寸�圭懓鐡ㄩ崗顧ray閺佹壆绮嶆稉锟�
 //		if(null != array && array.length > 0) {
-//			//濡傛灉limit + from 瓒呰繃鎬荤殑瀛楃涓瞐rray闀垮害,鍒欎娇鐢ㄥ瓧绗︿覆闀垮害浣滀负寰幆缁撴潫鏍囧織
+//			//婵″倹鐏塴imit + from 鐡掑懓绻冮幀鑽ゆ畱鐎涙顑佹稉鐬恟ray闂�鍨,閸掓瑤濞囬悽銊ョ摟缁楋缚瑕嗛梹鍨娴ｆ粈璐熷顏嗗箚缂佹挻娼弽鍥х箶
 //			limit = (limit + from) > array.length ? array.length : (limit + from);
 //			for(int i = from; i < limit; i++) {
 //				if(i == (limit - 1)) {
@@ -147,19 +147,19 @@ public final class StrManager {
 //	}
 	
 	/**
-	 * 杩斿洖涓�涓猻ize绛変簬page*pageCount鐨刢ollection瀵硅薄,size涓嶈冻灏变互""绌哄瓧绗︿覆琛ㄧず
-	 * @param c (Collection瀵硅薄)
-	 * @param page(椤垫暟)
-	 * @param pageCount(姣忛〉鏁伴噺)
+	 * 鏉╂柨娲栨稉锟芥稉鐚籭ze缁涘绨琾age*pageCount閻ㄥ垻ollection鐎电钖�,size娑撳秷鍐荤亸鍙樹簰""缁屽搫鐡х粭锔胯鐞涖劎銇�
+	 * @param c (Collection鐎电钖�)
+	 * @param page(妞ゅ灚鏆�)
+	 * @param pageCount(濮ｅ繘銆夐弫浼村櫤)
 	 * @return
 	 */
 	public static List<String> constructInStatement(Collection<String> c, int page, int pageCount) {
 		List<String> list = new ArrayList<String>();
-		//鎶奡et鎴栬�匧ist鐨勫唴瀹硅祴鍊肩粰list
+		//閹跺ァet閹存牞锟藉導ist閻ㄥ嫬鍞寸�圭绁撮崐鑲╃舶list
 		for(String s : c) {
 			list.add(s);
 		}
-		//灏戠殑鐢∟ULL琛ヤ笂
+		//鐏忔垹娈戦悽鈭烾LL鐞涖儰绗�
 		for(int i = 0; i < page*pageCount-c.size(); i++) {
 			list.add("NULL");
 		}
@@ -167,7 +167,7 @@ public final class StrManager {
 	}
 	
 	/**
-	 * 鏋勯�燩reparedStatement鐨処N璇彞鐨勯棶鍙�
+	 * 閺嬪嫰锟界嚛reparedStatement閻ㄥ嚘N鐠囶厼褰為惃鍕６閸欙拷
 	 * @param limit
 	 * @return
 	 */
@@ -177,6 +177,6 @@ public final class StrManager {
 			sb.append("?,");
 		}
 		String s = sb.toString();
-		return s.substring(0,s.lastIndexOf(','));//杩斿洖鍘绘帀鏈�鍚庝竴涓�楀彿鐨勫瓧绗︿覆
+		return s.substring(0,s.lastIndexOf(','));//鏉╂柨娲栭崢缁樺竴閺堬拷閸氬簼绔存稉顏堬拷妤�褰块惃鍕摟缁楋缚瑕�
 	}
 }
