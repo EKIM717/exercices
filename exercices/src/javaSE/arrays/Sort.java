@@ -1,5 +1,5 @@
 
-package arrays;
+package javaSE.arrays;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package math;
+package javaSE.math;
 
 /**
  * ²âÊÔ
