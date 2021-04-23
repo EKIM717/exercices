@@ -1,162 +1,109 @@
 package hacker_rank.project_euler;
 
-import java.time.LocalDateTime;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 public class P29_Distinct_powers {
-	
-	
-	
+
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
-		int t = in.nextInt();
-		while (t-- > 0) {
-			int a = in.nextInt();
-			System.out.println("------------------------");
-			System.out.println(LocalDateTime.now());
-			System.out.println(foo(a));
-			System.out.println(LocalDateTime.now());
+		int n = in.nextInt();
+
+		Map<Integer, Integer> powerMap = reduceRoot(n);
+//		System.out.println("---------------");
+//		System.out.println(LocalDateTime.now());
+		Long totalCount = 0L;
+
+		// get every power count
+		Map<Integer, Long> resultMap = getPowerCount(n);
+
+		for (Integer key : powerMap.keySet()) {
+			Integer power = powerMap.get(key);
+			totalCount += resultMap.get(power);
 		}
+//		System.out.println(LocalDateTime.now());
+		System.out.println(totalCount);
 		in.close();
+
 	}
 
-	static long foo(int n) {
-		//store the prime
-		boolean[] prime_array = new boolean[100001];
-		//findPrime
-//		System.out.println(LocalDateTime.now());
-		for (int i = 2; i <= n; i++) {
-			if (isPrime(i)) {
-				prime_array[i] = true;
+	/**
+	 * reduce root for example: the root of 4 and 8 are both 2
+	 * 
+	 * @param n
+	 * @return
+	 */
+	private static Map<Integer, Integer> reduceRoot(int n) {
+		Set<Integer> duplicateRootSet = new TreeSet<>();
+		Map<Integer, Integer> powerMap = new TreeMap<>();
+		for (int x = 2; x <= n; x++) {
+			if (duplicateRootSet.contains(x)) {
+				continue;
 			}
-		}
-//		System.out.println(LocalDateTime.now());
-		//repeat
-		Set<Integer> repeatSet = new HashSet<>();
-		int sum = 0;
-		Map<String, Set<String>> powMap = new HashMap<>();
-		loopMain: for (int i = 2; i <= n; i++) {
-			//if i is a prime
-			if (prime_array[i]) {
-				int fac = i;
-				int count = 1;
-				while ((fac *= i) <= n) {
-					count++;
-				}
-				sum += getCount(count, n);
-				continue loopMain;
-			}
-			// Prime factorization, i = m^p * n^q..., the map is {{m: p}, {n, q}...}
-			String[] array = divid(i, prime_array);
-			//if i = m^p (p>1), the map is {{m: p}}
-			if (array[0].split("\\|").length == 1) {
-				continue loopMain;
-			}
-			// if i = m^p * n^q (p>=1, q>=1), the map is {{m: p}, {n, q}}
-			for (int j = 2; j <= n; j++) {
-				if (i == j) {
-					repeatSet.add(i);
-					continue;
-				}
-				StringBuilder valueStr = new StringBuilder();
-				for (String k : array[1].split("\\|")) {
-					int powNum = Integer.valueOf(k) * j;
-					valueStr.append(powNum + "|");
-				}
-				String key = array[0];
-				Set<String> set = powMap.get(key);
-				if (null == set) {
-					set = new HashSet<>();
-					set.add(valueStr.toString());
-					powMap.put(key, set);
-					sum++;
-				} else {
-					if (!set.contains(valueStr.toString())) {
-						sum++;
-						set.add(valueStr.toString());
+
+			powerMap.put(x, 1);
+			duplicateRootSet.add(x);
+			for (int b = 2;; b++) {
+				double d = Math.pow(x, b);
+				if (d <= n) {
+					int temp = (int) d;
+					if (duplicateRootSet.contains(temp)) {
+						continue;
 					}
+					// restore the number
+					duplicateRootSet.add(temp);
+					powerMap.put(x, b);
+				} else if (b == 2) {
+					// only has one power
+				} else {
+					break;
 				}
 			}
 		}
-//		for (String k : powMap.keySet()) {
-//			if (null != powMap.get(k)) {
-//				for (String j : powMap.get(k))
-//					System.out.println(k + "^" + j);
-//			}
-//		}
-		return sum + repeatSet.size();
+		return powerMap;
 	}
 
-	static String[] divid(int n, boolean[] prime_array) {
-		String[] array = new String[2];
-		StringBuilder key = new StringBuilder();
-		StringBuilder value = new StringBuilder();
-		// divided by 2
-		int countOf2 = 0;
-		while (n % 2 == 0) {
-			n /= 2;
-			countOf2++;
-		}
-		if (countOf2 > 0) {
-			key.append(2 + "|");
-			value.append(countOf2 + "|");
-		}
-		if (n == 1) {
-			array[0] = key.toString();
-			array[1] = value.toString();
-			return array;
-		}
-		for (int i = 3; i <= n; i += 2) {
-			if (prime_array[i]) {
-				int count = 0;
-				while (n % i == 0) {
-					n /= i;
-					count++;
-				}
-				if (count > 0) {
-					key.append(i + "|");
-					value.append(count + "|");
-				}
-				if (n == 1) {
-					array[0] = key.toString();
-					array[1] = value.toString();
-					return array;
-				}
+	/**
+	 * get every power count
+	 * 
+	 * @param n
+	 * @return
+	 */
+	static Map<Integer, Long> getPowerCount(int n) {
+		// the minimum power is 2
+		int k = 2;
+		for (;; k++) {
+			double d = Math.pow(2, k);
+			if (d > (double) n) {
+				break;
 			}
 		}
-//		if (map.containsValue(0)) {
-//			System.out.println();
-//		}
-		return array;
-	}
-
-	static boolean isPrime(int n) {
-		if (n < 2) {
-			return false;
-		} else if (n == 2) {
-			return true;
+		// get the max power
+		k--;
+		// restores every power count
+		Map<Integer, Long> map = new HashMap<>();
+		for (; k >= 1; k--) {
+			int[] bitArray = new int[n * k + 1];
+			int temp = k;
+			for (int i = 1; i <= temp; i++) {
+				for (int j = 2; j <= n; j++) {
+					bitArray[i * j] = 1;
+				}
+			}
+//			Arrays.stream(bitArray).forEach(System.out::println);
+			Long v = 0L;
+			for (Integer i : bitArray) {
+				if (i == 1) {
+					v++;
+				}
+			}
+			map.put(temp, v);
 		}
-		for (int i = 2; i * i <= n; i++) {
-			if (n % i == 0)
-				return false;
-		}
-		return true;
+		return map;
 	}
 	
-	static int getCount(int count, int n) {
-		int sourceN = n;
-		int total = n - 1;
-		for (int i = 2; i <= count; i++) {
-			while (n > 1 && i * n > (i -1) * sourceN) {
-				n--;
-				total++;
-			}
-		}
-		return total;
-	}
 }
