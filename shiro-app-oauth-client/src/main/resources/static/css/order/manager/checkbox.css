@@ -1,0 +1,8 @@
+.tick {
+	background-color: #66fe33;
+	cursor: pointer;
+}
+.cross {
+	background-color: #bbffff;
+	cursor: pointer;
+}

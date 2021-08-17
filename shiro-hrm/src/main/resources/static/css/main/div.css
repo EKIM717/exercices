@@ -1,0 +1,17 @@
+div.header {
+    margin: 0px;
+    padding: 0px 0px 10px 0px;
+}
+
+div.contentTableDiv {
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+
+div.iFrameDiv {
+    border: none;
+    margin: 5px 0px 0px 0px;
+    width: 100%;
+    height: 100%;
+}

@@ -3,15 +3,36 @@ package com.windframework.shiro.core.config;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.shiro.mgt.SecurityManager;
+import org.apache.shiro.spring.LifecycleBeanPostProcessor;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
-import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
+
 @Configuration
 public class ShiroConfig {
+	
+	/**
+	 * 页面上使用shiro标签
+	 * @return
+	 */
+	@Bean(name = "shiroDialect")
+	public ShiroDialect shiroDialect(){
+		return new ShiroDialect();
+	}
+	
+    /**
+     * Shiro生命周期处理器
+     * @return
+     */
+    @Bean("lifecycleBeanPostProcessor")
+    public LifecycleBeanPostProcessor lifecycleBeanPostProcessor() {
+        return new LifecycleBeanPostProcessor();
+    }
 
     // 将自己的验证方式加入容器
     @Bean

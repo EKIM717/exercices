@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:shiro="http://www.thymeleaf.org/thymeleaf-extras-shiro">
+<head>
+<meta charset="UTF-8">
+<title>shiro</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="/static/css/default.css" />
+<link rel="stylesheet" type="text/css"
+	href="/static/js/easyui/easyui1.8.8/themes/default/easyui.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/icon.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/main.css" />
+
+<!-- <script charset="UTF-8" type="text/javascript" -->
+<!-- 	src="/static/js/jquery-1.6.2.js"></script> -->
+<script charset="UTF-8" type="text/javascript"
+	src="/static/js/easyui/easyui1.8.8/jquery.min.js"></script>
+<script charset="UTF-8" type="text/javascript"
+	src="/static/js/easyui/easyui1.8.8/jquery.easyui.min.js"></script>
+<script charset="UTF-8" type="text/javascript"
+	src="/static/js/easyui/easyui1.8.8/locale/easyui-lang-zh_CN.js"></script>
+<script charset="UTF-8" type="text/javascript"
+	src="/static/js/outlook.js"></script>
+<!-- 	<script charset="UTF-8" type="text/javascript" src="/static/js/common.js"></script> -->
+
+<!-- 	<script charset="UTF-8" type="text/javascript" src="/static/js/json2.js"></script> -->
+<!-- 	<script charset="UTF-8" type="text/javascript" src="/static/js/security/BigInt.js"></script> -->
+<!-- 	<script charset="UTF-8" type="text/javascript" src="/static/js/security/Barrett.js"></script> -->
+<!-- 	<script charset="UTF-8" type="text/javascript" src="/static/js/security/RSA.js"></script> -->
+
+<!-- 	<script charset="UTF-8" type="text/javascript" src="/static/js/main/Init.js"></script> -->
+<!-- 	<script charset="UTF-8" type="text/javascript" src="/static/js/main/EventHandlers.js"></script> -->
+<!-- <script charset="UTF-8" type="text/javascript" -->
+<!-- 	src="/static/js/common/upload/ajaxfileupload.js"></script> -->
+<script charset="UTF-8" type="text/javascript"
+	src="/static/js/common/upload/upload_file.js"></script>
+<script charset="UTF-8" type="text/javascript"
+	src="/static/js/common/common.js"></script>
+<script charset="UTF-8" type="text/javascript"
+	src="/static/js/common/common_redirect.js"></script>
+</head>
+<body>
+
+	<div class="easyui-layout" style="width: auto; height: 800px;">
+		<div region="north" title="顶部-首页"
+			style="width: 2000px; height: 100px; background-color: #8B658B;">
+			<div>
+				<table align="center">
+					<tr>
+						<td><a href="javascript:void(0)" id="sb_1"
+							class="easyui-splitbutton" plain="false"
+							data-options="menu:'#mma'" onclick="rpp('product')">(分销)产品管理</a></td>
+							
+						<td><a href="javascript:void(0)" id="sb_3"
+							class="easyui-splitbutton" plain="false"
+							data-options="menu:'#mma'," onclick="rpp('order')">lms订单管理</a></td>
+
+						<td><a href="javascript:void(0)" id="sb_2"
+							class="easyui-splitbutton" plain="false"
+							data-options="menu:'#mma'," onclick="rpp('user')">bmp用户管理</a></td>
+					</tr>
+				</table>
+				<div th:if="${session.loginUser==null}">
+					<a th:href="@{/login}">登录</a>
+				</div>
+				<div align="right" th:if="${session.loginUser}">
+					<a class="easyui-linkbutton" th:href="@{/logout}">退出</a>
+					<p th:text="${msg}"></p>
+				</div>
+			</div>
+
+			<div id="mma" style="width: 100px;">
+				<div data-options="">Ok</div>
+				<div data-options="">Cancel</div>
+			</div>
+			<!-- 			<hr /> -->
+			<!-- 			<div> -->
+			<!-- 				<span shiro:hasPermission="user:add"> <a -->
+			<!-- 					th:href="@{/user/add}">add</a> -->
+			<!-- 				</span> <span shiro:hasPermission="user:update"> <a -->
+			<!-- 					th:href="@{/user/update}">update</a> -->
+			<!-- 				</span> -->
+			<!-- 			</div> -->
+			<div id="mm" class="easyui-menu" style="width: 150px; display: none;">
+				<div id="mm-tabupdate">刷新</div>
+				<div class="menu-sep"></div>
+				<div id="mm-tabclose">关闭</div>
+				<div id="mm-tabcloseall">全部关闭</div>
+				<div id="mm-tabcloseother">除此之外全部关闭</div>
+				<div class="menu-sep"></div>
+				<div id="mm-tabcloseright">当前页右侧全部关闭</div>
+				<div id="mm-tabcloseleft">当前页左侧全部关闭</div>
+				<div class="menu-sep"></div>
+				<div id="mm-exit">退出</div>
+			</div>
+		</div>
+		<div region="east" style="width: 100px" title="右侧"></div>
+
+		<div region="west" hide="true" split="true" title="导航菜单"
+			style="width: 180px;" id="west">
+			<div id="nav" class="easyui-accordion" fit="true" border="false">
+			</div>
+		</div>
+		<div id="mainPanle" region="center" title="主工作区"
+			style="background: #eee; overflow-y: hidden">
+			<!--内容页-->
+			<div id="tabs" class="easyui-tabs" fit="true" border="false"></div>
+		</div>
+		<div region="south" title="底部" style="height: 80px;">
+			<div class="footer" style="text-align: center;">技术支持：windframework
+				V1.0</div>
+		</div>
+	</div>
+	<script type="text/javascript" charset="UTF-8">
+		/**
+		 *  批量导入
+		 */
+		function showcontent() {//openBatchDlg
+			$('#filePathId').val(null);
+			$('#uploadMsg').html("请先上传EXCEL文件");
+			$('#InductionButtons').linkbutton({
+				disabled : true
+			});
+			$('#batchDlg').dialog({
+				modal : true
+			}).dialog('open').dialog('setTitle', '批量导入');
+		}
+	</script>
+</body>
+</html>

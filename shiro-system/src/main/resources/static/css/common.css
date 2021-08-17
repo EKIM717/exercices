@@ -1,0 +1,13 @@
+.faceContent{
+	width:250px;
+	position:absolute;
+	border:1px solid #aaa;
+	border-top:none;display:none;
+	z-index:9999;
+	text-align:center;
+	padding:3px;
+	padding-bottom:6px;
+	background:#fff;
+}
+.faceContent a img{float:left;cursor:pointer;margin:1px 1px; border:#cacaca 1px solid} 
+.faceContent a:hover img{border:1px solid #f51d69}  

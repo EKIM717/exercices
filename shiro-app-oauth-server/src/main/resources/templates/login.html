@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="/static/css/default.css" />
+<link rel="stylesheet" type="text/css"
+	href="/static/js/easyui/easyui1.8.8/themes/default/easyui.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/icon.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/main.css" />
+
+<script charset="UTF-8" type="text/javascript"
+	src="/static/js/easyui/easyui1.8.8/jquery.min.js"></script>
+<script charset="UTF-8" type="text/javascript"
+	src="/static/js/easyui/easyui1.8.8/jquery.easyui.min.js"></script>
+<script charset="UTF-8" type="text/javascript"
+	src="/static/js/easyui/easyui1.8.8/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="/static/js/json2.js"></script>
+<script type="text/javascript" src="/static/js/login/login.js"></script>
+
+</head>
+
+<body>
+	错误信息：
+	<h4 id="erro"></h4>
+	<p>
+		<input class="easyui-textbox" type="text" label="账号：" labelPosition="left" required="true"  name="username" id="username" value="admin" style="width:300px"/>
+	</p>
+	<p>
+		<input class="easyui-passwordbox" type="password" label="密码：" labelPosition="left" required="true" name="password" id="password" value="123456" style="width:300px"/>
+	</p>
+	<p>
+		<input class="easyui-textbox" type="text" label="验证码：" labelPosition="left" required="true"  name="vcode" id="vcode" style="width:300px"/>
+	</p>
+	<p>
+		<img alt="验证码" id="codePic" src="http://localhost:8080/getGifCode"
+			onclick="change()" />
+	</p>
+	<P>
+		<input type="checkbox" name="rememberMe" id="rememberMe" />记住我
+	</P>
+	<p>
+		<input type="submit" value="登录" onclick="sendAjax()" id="login_submit" />
+	</p>
+
+</body>
+</html>

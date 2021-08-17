@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:shiro="http://www.thymeleaf.org/thymeleaf-extras-shiro">
+<head>
+<meta charset="UTF-8">
+<title>薪资管理</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="/static/css/default.css" />
+<link rel="stylesheet" type="text/css"
+	href="/static/js/easyui/easyui1.8.8/themes/default/easyui.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/icon.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/main.css" />
+
+<!-- <script charset="UTF-8" type="text/javascript" -->
+<!-- 	src="/static/js/jquery-1.6.2.js"></script> -->
+<script charset="UTF-8" type="text/javascript"
+	src="/static/js/easyui/easyui1.8.8/jquery.min.js"></script>
+<script charset="UTF-8" type="text/javascript"
+	src="/static/js/easyui/easyui1.8.8/jquery.easyui.min.js"></script>
+<script charset="UTF-8" type="text/javascript"
+	src="/static/js/easyui/easyui1.8.8/locale/easyui-lang-zh_CN.js"></script>
+<script charset="UTF-8" type="text/javascript"
+	src="/static/js/outlook.js"></script>
+
+<!-- 	<script charset="UTF-8" type="text/javascript" src="/static/js/json2.js"></script> -->
+<!-- 	<script charset="UTF-8" type="text/javascript" src="/static/js/security/BigInt.js"></script> -->
+<!-- 	<script charset="UTF-8" type="text/javascript" src="/static/js/security/Barrett.js"></script> -->
+<!-- 	<script charset="UTF-8" type="text/javascript" src="/static/js/security/RSA.js"></script> -->
+
+<!-- 	<script charset="UTF-8" type="text/javascript" src="/static/js/main/Init.js"></script> -->
+<!-- 	<script charset="UTF-8" type="text/javascript" src="/static/js/main/EventHandlers.js"></script> -->
+<script charset="UTF-8" type="text/javascript"
+	src="/static/js/common/upload/upload_file.js"></script>
+<script charset="UTF-8" type="text/javascript"
+	src="/static/js/common/common.js"></script>
+</head>
+<body>
+	<div id="mainPanle" region="center"
+		style="background: #eee; overflow-y: hidden">
+		
+		<div id="toolbar" class="search_bar" style="height:auto" align="left">
+		<table style="width: 100%">
+			<tbody>
+				<tr class="line_0">
+					<td>
+						<input label="账号：" labelPosition="top" class="easyui-textbox" type="text" id="sku_search" style="width:150px;"/>
+					</td>
+					<td>
+						<select label="分类:"  labelPosition="top" id="catalog_search" class="easyui-combotree" style="width:180px;"></select>
+					</td>
+					<td >
+						<input  label="产品型号:"  labelPosition="top" class="easyui-textbox" type="text" id="model_search" style="width:150px;"/>
+					</td>
+				</tr>
+				<tr class="line_0">
+					<td>
+						<input label="产品名称(中):"  labelPosition="top" class="easyui-textbox" type="text" id="nameCN_search" style="width:150px;"/>
+					</td>
+					<td>
+						<input  label="产品名称(英):"  labelPosition="top" class="easyui-textbox" type="text" id="nameEN_search" style="width:150px;"/>
+					</td>
+					<td>
+						<input label="产品名称(德):"  labelPosition="top" class="easyui-textbox" type="text" id="nameDE_search" style="width:150px;"/>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<a href="#" class="easyui-linkbutton" onclick="query()" iconCls="icon-search">查询</a>
+		&nbsp;
+		<a shiro:hasPermission="finance:salary:calc" href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="initAddProductBase()">增加产品</a>
+		<a shiro:hasPermission="finance:salary:calc" href="#" class="easyui-linkbutton" iconCls="icon-undo" plain="true" onclick="openBatchDlg()">批量导入</a>
+		<a shiro:hasPermission="finance:salary:calc" href="#" class="easyui-linkbutton" iconCls="icon-redo" plain="true" onclick="exportExcel()">批量导出</a>
+	</div>
+	<table id="dg" title="模拟计算" class="easyui-datagrid"
+		toolbar="#toolbar" rownumbers="true" fitColumns="true"
+		singleSelect="true" pagination="true" style="width:auto" idField="id">
+		<thead>
+			<tr>
+				<th field="employee" width="30">员工</th>
+				<th field="dateMonth" width="30">计算年月</th>
+				<th field="basicSalary" width="30">基本工资</th>
+				<th field="meritPay" width="30">绩效工资</th>
+				<th field="deductSalary" width="30">考勤扣除</th>
+				<th field="finalSalary" width="30">最终结果</th>
+	</table>
+		<!--内容页-->
+		<div id="upload_file" title="上传文件">
+			<div id="batchDlg" class="easyui-dialog"
+				style="width: 450px; height: 250px; padding: 10px 10px;"
+				closed="true" buttons="#batchDlg-buttons">
+				<div id="fileDiv">
+					选择： <input id="fileToUpload" type="file" size="25"
+						name="fileToUpload" multiple="true" onchange="checkType()" />
+					<!-- 						<input id="fileToUpload" separator = ";" multiple="TRUE" buttonText="选择文件" -->
+					<!--                 buttonAlign="left" class="easyui-filebox" style="width:300px"> -->
+					<button class="button" id="buttonUpload" onclick="uploadExcel()">上传</button>
+					<input id="filePathId" type="hidden" />
+					<div class="msg-info">
+						<div class="msg-tip icon-tip"></div>
+						<div id="uploadMsg" style="color: #F00;"></div>
+					</div>
+				</div>
+				<br>
+				<div id="resultMsg"></div>
+				<!-- 								<div style="bottom: 30px; position: absolute;"> -->
+				<div style="bottom: 30px;">
+					<span style="color: red;">注：</span>
+					<ul>
+						<li>1、请选择Excel格式文件，点此 <a href="/static/downloadFiles/1.txt/" class="easyui-linkbutton">下载模板</a>
+						</li>
+						<li>2、(SKU)库存号 为必填且不可重复</li>
+						<li>3、模板文件中红色标题为必填字段</li>
+					</ul>
+				</div>
+			</div>
+			<div id="batchDlg-buttons">
+				<a href="#" id="InductionButtons" class="easyui-linkbutton"
+					iconCls="icon-ok" onclick="saveBatchUpload('/finance/salary/calcBatchUpload')">导入</a> <a
+					href="#" class="easyui-linkbutton" iconCls="icon-cancel"
+					onclick="javascript:$('#batchDlg').dialog('close')">取消</a>
+			</div>
+			<div id="msgDlg" class="easyui-dialog"
+				style="width: 450px; height: 450px; padding: 10px 10px;"
+				resizable="true" closed="true">
+				<div id="recordMsg"></div>
+			</div>
+		</div>
+
+
+	</div>
+
+	<script type="text/javascript" charset="UTF-8">
+		/**
+		 *  批量导入
+		 */
+		function openBatchDlg() {
+			$('#filePathId').val(null);
+			$('#uploadMsg').html("请先上传EXCEL文件");
+			$('#InductionButtons').linkbutton({
+				disabled : true
+			});
+			$('#batchDlg').dialog({
+				modal : true
+			}).dialog('open').dialog('setTitle', '批量导入');
+		}
+	</script>
+</body>
+</html>

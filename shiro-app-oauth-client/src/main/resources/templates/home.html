@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>JSONP DEMO</title>
+</head>
+<body>
+<div id="PingAn"></div>
+<script>
+function getdata(result)
+{
+    var html ='';
+    for(var i = 0; i < result.data.cities_cn.length; i++)
+    {
+        html += result.data.cities_cn[i].c + "平安，";
+        for(var j = 0; j < result.data.cities_cn[i].z.length; j++)
+     {
+         html += result.data.cities_cn[i].z[j].c + "平安，";
+     }
+    }
+    
+ for(var i = 0; i < result.data.countries.length; i++)
+    {
+        html += result.data.countries[i].c + "平安";
+        if (i != result.data.countries.length-1)
+         html += "，";
+    }
+    document.getElementById('PingAn').innerHTML = html;
+}
+</script>
+<!--<script src="http://t.cn/A6U2AtHK"></script>-->
+<script src="https://gwpre.sina.cn/interface/wap_api/feiyan/sinawap_get_area_tree.d.json?callback=getdata"></script>
+</body>
+</html>

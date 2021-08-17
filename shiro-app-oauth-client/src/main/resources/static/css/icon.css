@@ -1,0 +1,313 @@
+.icon-add{
+	background:url('../images/icons/edit_add.png') no-repeat;
+}
+.icon-edit{
+	background:url('../images/icons/pencil.png') no-repeat;
+}
+.icon-remove{
+	background:url('../images/icons/edit_remove.png') no-repeat;
+}
+.icon-save{
+	background:url('../images/icons/filesave.png') no-repeat;
+}
+.icon-cut{
+	background:url('../images/icons/cut.png') no-repeat;
+}
+.icon-ok{
+	background:url('../images/icons/ok.png') no-repeat;
+}
+.icon-no{
+	background:url('../images/icons/no.png') no-repeat;
+}
+.icon-cancel{
+	background:url('../images/icons/cancel.png') no-repeat;
+}
+.icon-reload{
+	background:url('../images/icons/reload.png') no-repeat;
+}
+.icon-search{
+	background:url('../images/icons/search.png') no-repeat;
+}
+.icon-print{
+	background:url('../images/icons/print.png') no-repeat;
+}
+.icon-help{
+	background:url('../images/icons/help.png') no-repeat;
+}
+.icon-undo{
+	background:url('../images/icons/undo.png') no-repeat;
+}
+.icon-redo{
+	background:url('../images/icons/redo.png') no-repeat;
+}
+.icon-back{
+	background:url('../images/icons/back.png') no-repeat;
+}
+.icon-user{
+	background:url('../images/icons/user.png') no-repeat;
+}
+.icon-view{
+	background:url('../images/icons/view.png') no-repeat;
+}
+.icon-key{
+	background:url('../images/icons/key.png') no-repeat;
+}
+
+.icon-tip{
+	background:url('../images/icons/tip.png') no-repeat;
+}
+
+.note-tip{
+	background:url('../images/icons/note.gif') no-repeat;
+}
+.icon-user_home{
+	background:url('../images/icons/user_home.png') no-repeat;
+}
+.icon-folder_user{
+	background:url('../images/icons/folder_user.png') no-repeat;
+}
+.icon-cog_edit{
+	background:url('../images/icons/cog_edit.png') no-repeat;
+}
+
+.application_home{
+     background:url('../images/icons/application_home.png') no-repeat;
+}
+.application_split{
+     background:url('../images/icons/application_split.png') no-repeat;
+}
+.application_stop{
+     background:url('../images/icons/application_stop.png') no-repeat;
+}
+.application_view_detail{
+     background:url('../images/icons/application_view_detail.png') no-repeat;
+}
+.application_view_gallery{
+     background:url('../images/icons/application_view_gallery.png') no-repeat;
+}
+.basket_add{
+     background:url('../images/icons/basket_add.png') no-repeat;
+}
+.calculator{
+     background:url('../images/icons/calculator.png') no-repeat;
+}
+.calendar_add{
+     background:url('../images/icons/calendar_add.png') no-repeat;
+}
+.calendar_view_day{
+     background:url('../images/icons/calendar_view_day.png') no-repeat;
+}
+.camera_picture{
+     background:url('../images/icons/camera_picture.png') no-repeat;
+}
+.disk{
+     background:url('../images/icons/disk.png') no-repeat;
+}
+.world_edit{
+     background:url('../images/icons/world_edit.png') no-repeat;
+}
+.wrench_orange{
+     background:url('../images/icons/wrench_orange.png') no-repeat;
+}
+.zoom{
+     background:url('../images/icons/zoom.png') no-repeat;
+}
+.chart_curve{
+     background:url('../images/icons/chart_curve.png') no-repeat;
+}
+.chart_curve_add{
+     background:url('../images/icons/chart_curve_add.png') no-repeat;
+}
+.chart_curve_delete{
+     background:url('../images/icons/chart_curve_delete.png') no-repeat;
+}
+.chart_curve_edit{
+     background:url('../images/icons/chart_curve_edit.png') no-repeat;
+}
+.layout_link{
+     background:url('../images/icons/layout_link.png') no-repeat;
+}
+.layout_sidebar{
+     background:url('../images/icons/layout_sidebar.png') no-repeat;
+}
+.monitor_edit{
+     background:url('../images/icons/monitor_edit.png') no-repeat;
+}
+.report_key{
+     background:url('../images/icons/report_key.png') no-repeat;
+}
+.bug_edit{
+     background:url('../images/icons/bug_edit.png') no-repeat;
+}
+.calendar{
+     background:url('../images/icons/calendar.png') no-repeat;
+}
+.cart_full{
+     background:url('../images/icons/cart_full.png') no-repeat;
+}
+.lock_go{
+     background:url('../images/icons/lock_go.png') no-repeat;
+}
+.lock_key{
+     background:url('../images/icons/lock_key.png') no-repeat;
+}
+.rainbow{
+     background:url('../images/icons/rainbow.png') no-repeat;
+}
+.camera_link{
+     background:url('../images/icons/camera_link.png') no-repeat;
+}
+.cart_add{
+     background:url('../images/icons/cart_add.png') no-repeat;
+}
+.brick_go{
+     background:url('../images/icons/brick_go.png') no-repeat;
+}
+.comment_edit{
+     background:url('../images/icons/comment_edit.png') no-repeat;
+}
+.door_error{
+     background:url('../images/icons/door_error.png') no-repeat;
+}
+.group_delete{
+     background:url('../images/icons/group_delete.png') no-repeat;
+}
+.joystick_add{
+     background:url('../images/icons/joystick_add.png') no-repeat;
+}
+.link_go{
+     background:url('../images/icons/link_go.png') no-repeat;
+}
+.lorry_go{
+     background:url('../images/icons/lorry_go.png') no-repeat;
+}
+.map_edit{
+     background:url('../images/icons/map_edit.png') no-repeat;
+}
+.transmit_go{
+     background:url('../images/icons/transmit_go.png') no-repeat;
+}
+.application_form_magnify{
+     background:url('../images/icons/application_form_magnify.png') no-repeat;
+}
+.application_osx_cascade{
+     background:url('../images/icons/application_osx_cascade.png') no-repeat;
+}
+.anchor{
+     background:url('../images/icons/anchor.png') no-repeat;
+}
+.application_osx_home{
+     background:url('../images/icons/application_osx_home.png') no-repeat;
+}
+.application_osx_go{
+     background:url('../images/icons/application_osx_go.png') no-repeat;
+}
+.application_tile_vertical{
+     background:url('../images/icons/application_tile_vertical.png') no-repeat;
+}
+.basket_go{
+     background:url('../images/icons/basket_go.png') no-repeat;
+}
+.basket_error{
+     background:url('../images/icons/basket_error.png') no-repeat;
+}
+.basket_edit{
+     background:url('../images/icons/basket_edit.png') no-repeat;
+}
+.book_edit{
+     background:url('../images/icons/book_edit.png') no-repeat;
+}
+.book_next{
+     background:url('../images/icons/book_next.png') no-repeat;
+}
+.book_previous{
+     background:url('../images/icons/book_previous.png') no-repeat;
+}
+.building{
+     background:url('../images/icons/building.png') no-repeat;
+}
+.calculator_edit{
+     background:url('../images/icons/calculator_edit.png') no-repeat;
+}
+.cart_edit{
+     background:url('../images/icons/cart_edit.png') no-repeat;
+}
+.chart_bar{
+     background:url('../images/icons/chart_bar.png') no-repeat;
+}
+.chart_curve_edit{
+     background:url('../images/icons/chart_curve_edit.png') no-repeat;
+}
+.chart_line{
+     background:url('../images/icons/chart_line.png') no-repeat;
+}
+.chart_pie{
+     background:url('../images/icons/chart_pie.png') no-repeat;
+}
+.chart_pie_lightning{
+     background:url('../images/icons/chart_pie_lightning.png') no-repeat;
+}
+.color_wheel{
+     background:url('../images/icons/color_wheel.png') no-repeat;
+}
+.color_swatch{
+     background:url('../images/icons/color_swatch.png') no-repeat;
+}
+.creditcards{
+     background:url('../images/icons/creditcards.png') no-repeat;
+}
+.date{
+     background:url('../images/icons/date.png') no-repeat;
+}
+.email_edit{
+     background:url('../images/icons/email_edit.png') no-repeat;
+}
+.flag_white{
+     background:url('../images/icons/flag_white.png') no-repeat;
+}
+.ipod_cast{
+     background:url('../images/icons/ipod_cast.png') no-repeat;
+}
+.layers{
+     background:url('../images/icons/layers.png') no-repeat;
+}
+.layout{
+     background:url('../images/icons/layout.png') no-repeat;
+}
+.link_edit{
+     background:url('../images/icons/link_edit.png') no-repeat;
+}
+.lorry_stop{
+     background:url('../images/icons/lorry_stop.png') no-repeat;
+}
+.money_yen{
+     background:url('../images/icons/money_yen.png') no-repeat;
+}
+.note_edit{
+     background:url('../images/icons/note_edit.png') no-repeat;
+}
+.report_magnify{
+     background:url('../images/icons/report_magnify.png') no-repeat;
+}
+.coins_add{
+     background:url('../images/icons/coins_add.png') no-repeat;
+}
+.application_osx_stop{
+     background:url('../images/icons/application_osx_stop.png') no-repeat;
+}
+.attach{
+     background:url('../images/icons/attach.png') no-repeat;
+}
+.basket_put{
+     background:url('../images/icons/basket_put.png') no-repeat;
+}
+.building_key{
+     background:url('../images/icons/building_key.png') no-repeat;
+}
+.chart_line_delete{
+     background:url('../images/icons/chart_line_delete.png') no-repeat;
+}
+.file_upload{
+	background:url('../images/icons/file_upload.gif') no-repeat;
+}
+

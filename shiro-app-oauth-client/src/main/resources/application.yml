@@ -1,0 +1,41 @@
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/shiro-oauth?useUnicode=true&zeroDateTimeBehavior=convertToNull&autoReconnect=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+    username: root
+    password: 1234
+    
+  thymeleaf: 
+    cache: false
+    mode: HTML
+  
+  mvc: 
+    static-path-pattern: /static/**
+
+  jpa:
+    show-sql: true # 默认false，在日志里显示执行的sql语句
+    database: mysql
+    hibernate.ddl-auto: update #指定为update，每次启动项目检测表结构有变化的时候会新增字段，表不存在时会新建，如果指定create，则每次启动项目都会清空数据并删除表，再新建
+    properties.hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    hibernate:
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl #指定jpa的自动表生成策略，驼峰自动映射为下划线格式
+        #physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+  redis:
+    host: 192.168.0.101
+    port: 6379
+    maxIdle: 300
+    maxTotal: 500
+    maxWaitMillis: 1000
+    testOnBorrow: false
+    timeout: 2000
+   
+#配置EhCache的配置
+  cache:
+    ehcache:
+      config: ehcache/ehcache.xml # 读取ehcache.xml配置
+
+server: 
+  port: 8086

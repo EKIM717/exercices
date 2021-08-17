@@ -3,9 +3,19 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.windframework</groupId>
-		<artifactId>shiro-core</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+	<groupId>com.windframework</groupId>
+	<artifactId>shiro-core</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>shiro-system</artifactId>
+<!-- 	<groupId>com.windframework</groupId> -->
+<!-- 	<version>0.0.1-SNAPSHOT</version> -->
+
+	<dependencies>
+		<dependency>
+			<groupId>com.windframework</groupId>
+			<artifactId>shiro-core</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
 </project>

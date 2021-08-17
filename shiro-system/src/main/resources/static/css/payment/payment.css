@@ -1,0 +1,54 @@
+.combobox-title {
+	margin: 8px 0;
+}
+.payment-label {
+	display: inline-block;
+	border: 1px solid #7dd1e0;
+	border-radius: 14px;
+	padding: 2px 5px;
+	color: #376a73;
+	margin: 4px 3px;
+}
+.payment-label-container .payment-label-invalid {
+	background-color: #d2d2d2;
+	color: #999;
+	border-color: #999;
+}
+.paymentMethodDiv {
+	display: inline-block;
+}
+.main-container .payment-label-hover {
+	background: #99BBE8;
+}
+.paymentBottomLabel {
+	display: inline-block;
+	width: 80px;
+}
+.paymentBottomLine {
+	font-size: 16px; 
+	margin: 1px; 
+	padding: 2px;
+	height: 24px;
+	border-radius: 10px;
+	position: relative;
+}
+.paymentBottomLine-hover {
+	background: #bfedf5;
+}
+.paymentMethodCloseDiv {
+	display: inline-block;
+	width: 21px;
+	height: 21px;
+	border: 1px solid #999;
+	border-radius: 10px;
+	text-align: center;
+	position: absolute;
+	right: 4px;
+	background-color: #fff;
+}
+.paymentMethodCloseDivHover {
+	background-color: #92d2e0;
+}
+.empty-box-div .paymentMethodCloseDiv {
+	display: none;
+}

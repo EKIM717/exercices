@@ -1,0 +1,113 @@
+@charset "utf-8";
+/* CSS Document */
+
+body,div,table,tr,td,p,img,a,span,h1,hr,p,ul,li{margin:0; padding:0;list-style: none; font-family:"微软雅黑",Arial, Helvetica, sans-serif}
+body{background-color:#c7152d;}
+html, body { height: 100% }
+a{text-decoration:none;}
+img{border:none; max-width:100%;}
+ul,li{margin:0; padding:0;}
+.clear{clear:both;}
+.clearfloat:after{display:block;clear:both;content:"";visibility:hidden;height:0} 
+.clearfloat{zoom:1} 
+
+.head{height:95px; padding-top:35px; background-color:#FFF;}
+.logo{width:1000px; margin:0 auto; text-align:center; margin-left: 170px;}
+.logo1{float:left; width:182px; text-align:left;}
+.logo1 img{font-size:0px;}
+.logo2{
+	float:left;
+	padding-left:12px;
+	color:#c7152d; 
+	font-size:26px; 
+	font-weight:bold;
+	text-align:left;
+	margin-top: 7px;
+}
+
+.wrap{padding-top:50px;}
+.inwrap{width:1000px; margin-left: 175px; margin-top: -8px;}
+
+.left_img{width:500px; float:left; text-align:left;}
+.left_img img{font-size:0px;}
+
+.login_input{width:476px; float:left; padding-left:24px;}
+.login_head{ width:449px; height:508px;}
+.user_img{
+	padding-left:178px;
+	font-size:0px;
+	padding-top:50px;
+	padding-bottom:20px;
+}
+.uesr{
+	width:221px;
+	margin:0 auto;
+	font-size:18px;
+	font-weight:bold;
+	color:#f6b16c;
+	padding-left:138px;
+}
+.input{
+	padding-left:68px;
+	padding-top:37px;
+	width:312px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px; 
+	color:#f6b16c;
+}
+.useinput{
+	width:240px;
+	height:42px;
+	border:1px solid #f6b16c;
+	padding-left:70px;
+	background-color:#FFF;
+	color:#f6b16c;
+	line-height:42px;
+}
+.useinpass{
+	width:240px;
+	padding-left:70px;
+	height:42px;
+	border:1px solid #f6b16c;
+	background-color:#FFF;
+	color:#f6b16c;
+	line-height:42px;
+}
+
+.uesrpass{
+	padding-top:24px;
+	padding-bottom:33px;
+}
+.tip {
+	height:24px;
+	line-height:20px;
+	color:#FFF;
+	font-size:12px;
+	padding-left:32px;
+	margin-left:70px;
+}
+.button{
+		margin-left:70px;
+		padding-top:30px;
+}
+.button_login{
+	width:312px;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	color:#FFF;
+	font-size:18px;
+	background-color:#f6b16c;
+	border:none;
+	cursor:pointer;
+}
+.high-light {
+	border: 1px solid #80acd9;
+	background: #fff;
+	color: #9cb5cd;
+	font-size: 0.875rem;
+	text-indent: 0.75rem;
+	border-color: rgb(86, 164, 246);
+	box-shadow: 0 0.0625rem 0.25rem #0b7ab3a6 inset, 0 0 0.875rem rgba(11, 122, 179, 0.45);
+}
+	

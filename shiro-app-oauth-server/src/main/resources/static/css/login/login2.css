@@ -1,0 +1,125 @@
+@charset "utf-8";
+/* CSS Document */
+
+body,div,table,tr,td,p,img,a,span,h1,hr,p,ul,li{margin:0; padding:0;list-style: none; font-family:"微软雅黑",Arial, Helvetica, sans-serif}
+body{background-color:#56a4f6;}
+html, body { height: 100% }
+a{text-decoration:none;}
+img{border:none; max-width:100%;}
+ul,li{margin:0; padding:0;}
+.clear{clear:both;}
+.clearfloat:after{display:block;clear:both;content:"";visibility:hidden;height:0}
+.clearfloat{zoom:1}
+
+.head{height:88px; padding-top:25px; background-color:#FFF;}
+.logo{width:1000px; margin:0 auto; text-align:center; margin-left: 170px;}
+.logo1{float:left; width:182px; text-align:left;}
+.logo1 img{font-size:0px;}
+.logo2{
+	float:left;
+	padding-left:12px;
+	color:#4154a4;
+	font-size:26px;
+	font-weight:bold;
+	text-align:left;
+	margin-top: 7px;
+}
+
+.wrap{padding-top:85px;}
+.inwrap{width:1000px; margin:0 auto;}
+
+.left_img{width:500px; float:left; text-align:left;}
+.left_img img{font-size:0px;}
+
+.login_input{
+	width:475px;
+	float:left;
+	padding-left:25px;
+}
+.login_head{
+	background-color:#2c71bc;
+	width:450px;
+	height:508px;
+	background:url(../../images/login/login2/bps_15.jpg) top center no-repeat;
+}
+.user_img{
+	padding-left:178px;
+	font-size:0px;
+	padding-top:50px;
+	padding-bottom:20px;
+}
+.uesr{
+	background:url(../../images/login/login2/bps_20.jpg) center no-repeat;
+	width:221px;
+	margin:0 auto;
+	font-size:18px;
+	font-weight:bold;
+	color:#515151;
+	padding-left:138px;
+}
+.input{
+	padding-left:68px;
+	padding-top:37px;
+	width:312px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px; 
+	color:#515151;
+}
+.useinput{
+	width:240px;
+	height:42px;
+	border:1px solid #a0a0a0;
+	background:url(../../images/login/login2/bps_34.jpg) 10px center no-repeat;
+	padding-left:70px;
+	color:#515151;
+	line-height:42px;
+}
+.useinpass{
+	width:240px;
+	padding-left:70px;
+	height:42px;
+	border:1px solid #a0a0a0;
+	background:url(../../images/login/login2/bps_37.jpg) 10px center no-repeat;
+	color:#515151;
+	line-height:42px;
+}
+input[type="value"]{
+	color:#c7c7c7!important;
+}
+.uesrpass{
+	padding-top:24px;
+	padding-bottom:33px;
+}
+.error{
+	background:url(../../images/login/login2/bps_19.jpg) left center no-repeat;
+	height:20px;
+	line-height:20px;
+	color:#a0a0a0;
+	font-size:12px;
+	padding-left:32px;
+	margin-left:70px;
+}
+.button{
+	margin-left:70px;
+	padding-top:30px;
+}
+.button_login{
+	width:312px;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	color:#FFF;
+	font-size:18px;
+	background-color:#00a17f;
+	border:none;
+	cursor:pointer;
+}
+.tip {
+	height:24px;
+	line-height:20px;
+	color:#FD0000;
+	font-size:12px;
+	padding-left:32px;
+	margin-left:70px;
+}
+	

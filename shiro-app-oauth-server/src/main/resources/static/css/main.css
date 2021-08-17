@@ -1,0 +1,191 @@
+
+a:link{
+	text-decoration:none;
+}
+
+.search_bar {
+	height : auto;
+}
+
+#fm{
+	margin:0;
+	padding:10px 30px;
+}
+
+.ftitle{
+	font-size:14px;
+	font-weight:bold;
+	color:#666;
+	padding:5px 0;
+	margin-bottom:10px;
+	border-bottom:1px solid #ccc;
+}
+
+.fitem{
+	margin-bottom:5px;
+}
+
+.fitem label{
+	display:inline-block;
+	width:80px;
+}
+
+.msg-info{
+	background:#FFFEE6;
+	color:#8F5700;
+}
+
+.msg-tip{
+	width:24px;
+	height:16px;
+	float:left;
+}
+
+.searchDiv {
+	width:80px;
+	color: #797979;
+	font-weight: 700;
+	line-height: 1.4em;
+	border:1px;
+}
+
+.searchDiv_InfoCol {	
+	text-align: left;
+	vertical-align: middle;	
+	border-right: 1px white solid;
+	border-bottom: 1px white solid;
+}
+
+.searchDiv_InfoCol {	
+	text-align: left;
+	vertical-align: middle;	
+	border-right: 1px white solid;
+	border-bottom: 1px white solid;
+}
+
+.searchDiv input{	 
+	font-family: Arial,  Verdana, Helvetica, sans-serif;	
+	border: 1px solid #cecece;
+}
+
+.timeSwitchClass {
+	color: red;
+	text-decoration: underline;
+}
+
+.formInfoTable {
+	font-size: 13px;
+	padding: 0px;
+	border: 0px;
+}
+
+.formInfoTable span{
+	color: #797979;
+	font-weight: 700;
+	line-height: 1.4em;
+}
+
+.formInfoTable_StarCol {
+	text-align: center;
+	vertical-align: middle;
+	width:5px;
+	color: red;
+	border-right: 1px white solid;
+	border-bottom: 1px white solid;
+}
+.formInfoTable_LableCol {
+	width:20%;
+	color: #797979;
+	font-weight: 700;
+	line-height: 1.4em;
+	border:1px;
+}
+
+.formInfoTable_InfoCol {	
+	text-align: left;
+	vertical-align: middle;	
+	border-right: 1px white solid;
+	border-bottom: 1px white solid;
+}
+
+.formInfoTable_InfoCol input{	 
+	padding: 3px;
+	font-family: Arial,  Verdana, Helvetica, sans-serif;	
+	border: 1px solid #cecece;
+}
+
+.formInfoTable_InfoCol input.error{	
+	border-color: #e77776;
+}
+
+.formInfoTable_InfoCol  label{
+	margin-left: 1px;
+	color: #000000;
+	font-size: 12px;
+}
+
+.formInfoTable_InfoCol label.error{
+	color: #e77776;
+	font-size: 12px;
+}
+
+.formInfoTable_checkingCol { 
+	font-size:13px;
+	vertical-align: middle;
+	text-align: left;
+	border-right: 1px white solid;
+	border-bottom: 1px white solid;
+}
+
+.productImg {
+	width:160px;
+	height:200px;
+	top:70px;
+	right:30px;
+	border:1px solid #000;	
+	position:absolute;	 
+}
+
+.eidtImages{
+	width:100%;	
+	bottom:0px;
+	margin:0px auto;
+	TEXT-ALIGN: center;
+	font-size:13px;
+	position:absolute;
+}
+
+.eidtImages a:hover {
+	color:#0000FF;text-decoration : underline;
+}
+
+div.graph {
+	width: 400px;
+	height: 300px;
+	float: left;
+	border: 1px dashed gainsboro;
+}
+
+.mb10 {
+	margin-bottom: 0px;
+}
+
+.legend{padding:1px 2px;line-height:1.8;}
+.legend ol,.ol{margin-left:1.8em;padding:1px 0;}
+.legend ol li,.ol li{list-style:decimal;}
+.legend ul{margin-left:1.3em;padding:1px 0;}
+.legend ul li{list-style:circle;}
+.legend .note{padding:0px 0;}
+.legend .note span{border-bottom:0px dashed #ff5500;}
+
+.h1,.h {
+	line-height: 25px;
+	height: 25px;
+	border-top: 0px solid #CBDAEA;
+	background: #EAF2FA;
+	padding: 0 15px;
+	font-size: 14px;
+	font-weight: 500;
+	border-bottom: 0px solid #DEEAF7;
+	color: #333;
+}
